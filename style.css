@@ -1,0 +1,17 @@
+body{
+
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+}
+.menu{
+    width: 100px;
+    background-color: azure;
+    height: 100vh;
+    border: 1px solid black;
+}
+.content{
+    height: 100vh;
+    background-color: rgb(223, 223, 255);
+    width: 100%;
+}
