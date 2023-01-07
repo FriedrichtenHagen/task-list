@@ -3,6 +3,7 @@ body{
     display: flex;
     padding: 0px;
     margin: 0px;
+    height: 100vh;
 }
 .menu{
     width: 100px;
@@ -15,7 +16,7 @@ body{
 }
 .newItemButton{
     font-size: 2rem;
-    padding: 5px;
+    padding: 1px;
     border-radius: 30px;
     background-color: #dfdfff;
     display: flex;
@@ -24,13 +25,26 @@ body{
     margin-top: 20px;
     width: 2rem;
     height: 2rem;
+    box-shadow: 0.2rem 0.5rem 1rem rgb(0 0 0 / 40%);
+    cursor: pointer;
+
 }
 .projectsTitle{
     font-size: 1.5rem;
     margin: 15px 0px 10px;
 }
 .content{
-    height: 100vh;
     background-color: rgb(223, 223, 255);
     width: 100%;
+    padding: 100px;
+}
+.contentTitle{
+    font-size: 2rem;
+}
+.task{
+    display: flex;
+
+}
+.taskButton{
+    margin-right: 5px;
 }
