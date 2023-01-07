@@ -1,3 +1,7 @@
-export default function printMe() {
-    console.log('I get called from print.js!');
-  }
+export function displayInput(){
+  const inputForm = document.querySelector(".inputForm");
+  const inputScreen = document.querySelector(".inputScreen");
+
+  inputForm.classList.toggle("active")
+  inputScreen.classList.toggle("active")
+}
