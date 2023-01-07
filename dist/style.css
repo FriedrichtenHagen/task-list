@@ -7,8 +7,27 @@ body{
 .menu{
     width: 100px;
     background-color: azure;
-    height: 100vh;
+    padding: 5px;
     border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.newItemButton{
+    font-size: 2rem;
+    padding: 5px;
+    border-radius: 30px;
+    background-color: #dfdfff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 2rem;
+    height: 2rem;
+}
+.projectsTitle{
+    font-size: 1.5rem;
+    margin: 15px 0px 10px;
 }
 .content{
     height: 100vh;
