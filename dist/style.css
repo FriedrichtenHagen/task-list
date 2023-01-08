@@ -4,7 +4,7 @@
 }
 @font-face {
     font-family: "lato";
-    src: url("/Lato/Lato-Regular.ttf");
+    src: url("Lato/Lato-Regular.ttf");
 }
 
 body{
@@ -22,7 +22,7 @@ body{
     flex-direction: column;
     align-items: center;
 }
-.newProjectButton, .newTaskButton{
+.newProjectButton{
     font-size: 2rem;
     padding: 1px;
     border-radius: 30px;
@@ -34,13 +34,23 @@ body{
     height: 2rem;
     cursor: pointer;
     font-weight: bold;
-
+    transition-timing-function: ease;
+    transition: 0.5s;
 }
 .newProjectButton:hover{
-    background-color: var(--main-color)
+    transform: scale(1.5);
+    transition: all;
+    transition-timing-function: ease;
+    transition: 0.5s;
 }
-.newTaskButton:hover{
-    background-color: var(--secondary-color)
+.menuProject{
+    border-radius: 5px;
+    padding: 1px 3px 1px 3px;
+    cursor: pointer;
+}
+
+.newProjectButton:hover, .menuProject:hover{
+    background-color: var(--main-color)
 }
 .projectsTitle{
     font-size: 1.5rem;
@@ -49,19 +59,64 @@ body{
 .content{
     background-color: var(--main-color);
     width: 100%;
-    padding: 100px;
+    padding: 65px;
 }
 .contentTitle{
     font-size: 2rem;
 }
+/*Tasks*/
+.contentTasks{
+    margin-top: 5px;
+}
 .task{
     display: flex;
-
+    justify-content: space-between;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 1px 3px 1px 3px;
+}
+.task:hover, .contentAdd:hover{
+    background-color: var(--secondary-color);
+}
+.taskLeft{
+    display: flex;
 }
 .taskButton{
     margin-right: 5px;
 }
+.taskRight{
+    font-size: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.contentAdd{
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    border-radius: 5px;
+    padding: 1px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+.contentPlus{
+    margin-right: 5px;
+    font-size: 0.8rem;
+    padding: 0px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-weight: bold;
+}
+
+
+/*
+Input Modal
+*/
 .inputScreen{
     background-color: black;
     width: 100%;
@@ -126,12 +181,6 @@ li>button{
 li>button:hover {
     filter: brightness(90%);
 }
-.newTask{
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-}
-.newTaskButton{
-    margin-top: 0px;
-    margin-right: 10px;
-}
+
+
+
