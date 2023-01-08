@@ -5,7 +5,7 @@ import {displayInput} from './dom.js';
 
 // write the logic here (object creation and editing, eventlisteners)
 
-const newItemButton = document.querySelector(".newItemButton")
+const newItemButton = document.querySelector(".newProjectButton")
 newItemButton.addEventListener("click", displayInput)
 
 
