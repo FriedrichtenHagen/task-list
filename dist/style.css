@@ -2,11 +2,17 @@
     --main-color: #dfdfff;
     --secondary-color: azure;
 }
+@font-face {
+    font-family: "lato";
+    src: url("/Lato/Lato-Regular.ttf");
+}
+
 body{
     display: flex;
     padding: 0px;
     margin: 0px;
     height: 100vh;
+    font-family: 'lato', serif ;
 }
 .menu{
     width: 100px;
