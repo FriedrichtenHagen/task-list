@@ -1,5 +1,8 @@
+:root{
+    --main-color: #dfdfff;
+    --secondary-color: azure;
+}
 body{
-
     display: flex;
     padding: 0px;
     margin: 0px;
@@ -7,9 +10,8 @@ body{
 }
 .menu{
     width: 100px;
-    background-color: azure;
+    background-color: var(--secondary-color);
     padding: 5px;
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,23 +20,28 @@ body{
     font-size: 2rem;
     padding: 1px;
     border-radius: 30px;
-    background-color: #dfdfff;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
     width: 2rem;
     height: 2rem;
-    box-shadow: 0.2rem 0.5rem 1rem rgb(0 0 0 / 40%);
     cursor: pointer;
+    font-weight: bold;
 
+}
+.newProjectButton:hover{
+    background-color: var(--main-color)
+}
+.newTaskButton:hover{
+    background-color: var(--secondary-color)
 }
 .projectsTitle{
     font-size: 1.5rem;
-    margin: 15px 0px 10px;
+    margin: 50px 0px 10px;
 }
 .content{
-    background-color: rgb(223, 223, 255);
+    background-color: var(--main-color);
     width: 100%;
     padding: 100px;
 }
@@ -116,7 +123,9 @@ li>button:hover {
 .newTask{
     display: flex;
     align-items: center;
+    margin-top: 10px;
 }
 .newTaskButton{
     margin-top: 0px;
+    margin-right: 10px;
 }

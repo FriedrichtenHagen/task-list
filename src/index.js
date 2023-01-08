@@ -43,3 +43,7 @@ function createListObject(listTitle){
   }
 }
 const thursdayList = createListObject("Thursday")
+
+/*
+    add a cool font 
+*/
