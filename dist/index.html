@@ -81,23 +81,16 @@
         <div class="inputHeader">
             Add new project:
         </div>
-        <form action="/postToimaginaryBackend.php" name="">
+        <form name="">
             <ul>
                 <li>
-                    <input type="text" id="author" placeholder="Author" minlength="2">
+                    <input type="text" id="ProjectTitle" placeholder="Title" minlength="2">
                 </li>
                 <li>
-                    <input type="text" id="title" placeholder="Title" minlength="2">
-                </li>
-                <li>
-                    <input type="text" id="pageNum" placeholder= "Pages" pattern="[0-9]*$" maxlength="5" minlength="1" >
-                </li>
-                <li>
-                    <label for="readStatus">Have you read it?</label>
-                        <input type="checkBox" name="readStatus" id="readStatus">
+                    <input type="text" id="ProjectDescription" placeholder="Description" minlength="2">
                 </li>
                 <li id="submitButton">
-                        <button type="submit">Save</button>
+                        <button class="projectSubmitButton">Save</button>
                 </li>
             </ul>
         </form>

@@ -3,14 +3,19 @@ const test = formatDistance(subDays(new Date(), 3), new Date(), { addSuffix: tru
 
 import {displayInput} from './dom.js';
 
-// write the logic here (object creation and editing, eventlisteners)
 
+// start modal
 const newItemButton = document.querySelector(".newProjectButton")
 newItemButton.addEventListener("click", displayInput)
-
+// end modal
 const inputScreen = document.querySelector(".inputScreen")
 inputScreen.addEventListener("click", displayInput)
 
+
+const projectSubmitButton = document.querySelector(".projectSubmitButton")
+projectSubmitButton.addEventListener("click", () => {console.log(createProject())})
+
+// write the logic here (object creation and editing, eventlisteners)
 
 // get content of input fields
 function acceptInput(){
@@ -25,7 +30,7 @@ function acceptInput(){
 
 
 // create todo object
-function createTodoObject(title, description, dueDate, priority){
+function createTask(title, description, dueDate, priority){
   return {
     title : title,
     description : description,
@@ -34,16 +39,23 @@ function createTodoObject(title, description, dueDate, priority){
 
   }
 }
-const workout = createTodoObject("overheadpress", "Work on overhead strength", "01.03.2023", 3)
+const workout = createTask("overheadpress", "Work on overhead strength", "01.03.2023", 3)
 
-// create list object
-function createListObject(listTitle){
-  return {
-    listTitle : listTitle, 
+// create project object
+
+
+function createProject(){
+  const projectTitle = document.querySelector(".projectTitle").value
+  const projectDescription = document.querySelector(".projectDescription").value
+  
+  const newProject = {
+    projectTitle : projectTitle, 
+    projectDescription: projectDescription,
     todoArray : [{arow : "milk", carrot : "orange"},workout,5],
   }
+  return newProject
 }
-const thursdayList = createListObject("Thursday")
+
 
 /*
     add a cool font 

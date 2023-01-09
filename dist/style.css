@@ -135,7 +135,7 @@ Input Modal
     position: absolute;
     z-index: 1;
     transform: translate(-50%, -50%) scale(1, 0);
-    height: 200px;
+    height: 100px;
     width: 200px;
     top: 35%;
     left: 50%;
@@ -168,7 +168,6 @@ input{
     outline: none;
 }
 li>button{
-
     cursor: pointer;
     padding: 3px 5px 4px 5px;
 }
