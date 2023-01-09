@@ -8,7 +8,8 @@ import {displayInput} from './dom.js';
 const newItemButton = document.querySelector(".newProjectButton")
 newItemButton.addEventListener("click", displayInput)
 
-
+const inputScreen = document.querySelector(".inputScreen")
+inputScreen.addEventListener("click", displayInput)
 
 
 // get content of input fields

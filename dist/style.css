@@ -130,18 +130,7 @@ Input Modal
 .inputScreen.active{
     display: block;
 }
-.inputButton{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.inputButton>button{
-    border-radius: 16px;
-    padding: 7px;
-}
-.inputButton>button:hover {
-    filter: brightness(90%);
-}
+
 .inputForm{
     position: absolute;
     z-index: 1;
@@ -150,7 +139,7 @@ Input Modal
     width: 200px;
     top: 35%;
     left: 50%;
-    background-color: var(--box-color);
+    background-color: var(--secondary-color);
     text-align: center;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -175,10 +164,13 @@ li{
 }
 input{
     max-width: 150px;
+    border: none;
+    outline: none;
 }
 li>button{
-    border-radius: 13px;
-    padding: 8px;
+
+    cursor: pointer;
+    padding: 3px 5px 4px 5px;
 }
 li>button:hover {
     filter: brightness(90%);
