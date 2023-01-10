@@ -19,7 +19,6 @@ projectSubmitButton.addEventListener("click", () => {
   let newProject = createProject()
   
   projectList.push(newProject)
-  console.log(projectList)
   paintProjects()
 })
 
@@ -57,16 +56,18 @@ function paintProjects(){
     projectsList.removeChild(projectsList.lastChild)
   }
   // add all items in projectList array
-
   projectList.forEach(element => {
     let listItem = document.createElement("div")
     listItem.textContent = element.projectTitle
     listItem.classList.add("menuProject")
     projectsList.appendChild(listItem)
   });
- 
 }
 /*
 adjust styling to 100% zoom
-fill paintProjects function
+fix projectslist, projectlist think of better name
+
+add modal for tasks?
+use existing modal?
+
 */ 
