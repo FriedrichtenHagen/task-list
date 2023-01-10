@@ -11,42 +11,36 @@ newItemButton.addEventListener("click", displayInput)
 const inputScreen = document.querySelector(".inputScreen")
 inputScreen.addEventListener("click", displayInput)
 
+// create project array
+const projectList = [{projectTitle: "Studying", projectDescription: "working hard"}, {projectTitle: "art", projectDescription: "creating visually appealing websites with css"}]
 
 const projectSubmitButton = document.querySelector(".projectSubmitButton")
-projectSubmitButton.addEventListener("click", () => {console.log(createProject())})
+projectSubmitButton.addEventListener("click", () => {
+  let newProject = createProject()
+  
+  projectList.push(newProject)
+  console.log(projectList)
+  paintProjects()
+})
 
 // write the logic here (object creation and editing, eventlisteners)
-
-// get content of input fields
-function acceptInput(){
-    let title = titleInput.value
-    let author = authorInput.value
-    let pageNum = pageNumInput.value
-    let readStatus = readStatusInput.checked 
-    let newBook = new Book(author, title, pageNum, readStatus)
-    addBookToLibrary(newBook);
-}
-
 
 
 // create todo object
 function createTask(title, description, dueDate, priority){
   return {
-    title : title,
-    description : description,
-    dueDate : dueDate,
-    priority : priority,
-
+    taskTitle : title,
+    taskDescription : description,
+    taskDueDate : dueDate,
+    taskPriority : priority,
   }
 }
 const workout = createTask("overheadpress", "Work on overhead strength", "01.03.2023", 3)
 
 // create project object
-
-
 function createProject(){
-  const projectTitle = document.querySelector(".projectTitle").value
-  const projectDescription = document.querySelector(".projectDescription").value
+  const projectTitle = document.querySelector("#projectTitle").value
+  const projectDescription = document.querySelector("#projectDescription").value
   
   const newProject = {
     projectTitle : projectTitle, 
@@ -56,7 +50,7 @@ function createProject(){
   return newProject
 }
 
-
-/*
-    add a cool font 
-*/
+function paintProjects(){
+  //dom stuff
+ 
+}
