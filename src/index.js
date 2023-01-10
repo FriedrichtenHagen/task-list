@@ -54,3 +54,7 @@ function paintProjects(){
   //dom stuff
  
 }
+/*
+adjust styling to 100% zoom
+fill paintProjects function
+*/ 
