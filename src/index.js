@@ -51,7 +51,19 @@ function createProject(){
 }
 
 function paintProjects(){
-  //dom stuff
+  const projectsList = document.querySelector(".projectsList")
+  // remove existing projects
+  while(projectsList.lastChild){
+    projectsList.removeChild(projectsList.lastChild)
+  }
+  // add all items in projectList array
+
+  projectList.forEach(element => {
+    let listItem = document.createElement("div")
+    listItem.textContent = element.projectTitle
+    listItem.classList.add("menuProject")
+    projectsList.appendChild(listItem)
+  });
  
 }
 /*
