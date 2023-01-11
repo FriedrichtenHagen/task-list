@@ -1,15 +1,23 @@
 import { formatDistance, subDays } from 'date-fns'
 const test = formatDistance(subDays(new Date(), 3), new Date(), { addSuffix: true })
 
-import {displayInput} from './dom.js';
+import {toggleProjectInput, toggleTaskInput} from './dom.js';
 
 
-// start modal
+// start project modal
 const newItemButton = document.querySelector(".newProjectButton")
-newItemButton.addEventListener("click", displayInput)
-// end modal
-const inputScreen = document.querySelector(".inputScreen")
-inputScreen.addEventListener("click", displayInput)
+newItemButton.addEventListener("click", toggleProjectInput)
+// end project modal
+const inputScreenProject = document.querySelector(".inputScreenProject")
+inputScreenProject.addEventListener("click", toggleProjectInput)
+
+// start task modal
+const newTaskButton = document.querySelector(".newTaskButton")
+newTaskButton.addEventListener("click", toggleTaskInput)
+// end project modal
+const inputScreenTask = document.querySelector(".inputScreenTask")
+inputScreenTask.addEventListener("click", toggleTaskInput)
+
 
 // create project array
 const projectList = []

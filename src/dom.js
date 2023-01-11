@@ -1,7 +1,15 @@
-export function displayInput(){
-  const inputForm = document.querySelector(".inputForm");
-  const inputScreen = document.querySelector(".inputScreen");
+export function toggleProjectInput(){
+  const inputProjectForm = document.querySelector(".inputFormProject");
+  const inputScreenProject = document.querySelector(".inputScreenProject");
 
-  inputForm.classList.toggle("active")
-  inputScreen.classList.toggle("active")
+  inputProjectForm.classList.toggle("active")
+  inputScreenProject.classList.toggle("active")
+}
+
+export function toggleTaskInput(){
+  const inputFormTask = document.querySelector(".inputFormTask");
+  const inputScreenTask = document.querySelector(".inputScreenTask");
+
+  inputFormTask.classList.toggle("active")
+  inputScreenTask.classList.toggle("active")
 }

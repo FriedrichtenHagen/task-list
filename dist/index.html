@@ -64,12 +64,12 @@
                 </div>
             </div>
         </div>
-        <div class="contentAdd">
+        <div class="newTaskButton">
             <div class="contentPlus">+</div>
             <div class="taskText">add a new task</div>
         </div>
     </div>
-    <div class="inputForm">
+    <div class="inputFormProject">
         <div class="inputHeader">
             Add new project:
         </div>
@@ -85,6 +85,23 @@
                 </li>
             </ul>
     </div>
-    <div class="inputScreen"></div>
+    <div class="inputFormTask">
+        <div class="inputHeader">
+            Add new project:
+        </div>
+            <ul>
+                <li>
+                    <input type="text" id="taskTitle" placeholder="asdfadsTitle" minlength="2">
+                </li>
+                <li>
+                    <input type="text" id="taskDescription" placeholder="Description" minlength="2">
+                </li>
+                <li id="submitButton">
+                        <button class="taskSubmitButton">Save</button>
+                </li>
+            </ul>
+    </div>
+    <div class="inputScreenProject"></div>
+    <div class="inputScreenTask"></div>
 </body>
 </html>
