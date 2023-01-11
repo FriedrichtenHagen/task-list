@@ -12,7 +12,7 @@ const inputScreen = document.querySelector(".inputScreen")
 inputScreen.addEventListener("click", displayInput)
 
 // create project array
-const projectList = [{projectTitle: "Studying", projectDescription: "working hard"}, {projectTitle: "art", projectDescription: "creating visually appealing websites with css"}]
+const projectList = []
 
 const projectSubmitButton = document.querySelector(".projectSubmitButton")
 projectSubmitButton.addEventListener("click", () => {
@@ -38,14 +38,18 @@ const workout = createTask("overheadpress", "Work on overhead strength", "01.03.
 
 // create project object
 function createProject(){
-  const projectTitle = document.querySelector("#projectTitle").value
-  const projectDescription = document.querySelector("#projectDescription").value
+  const projectTitle = document.querySelector("#projectTitle")
+  const projectDescription = document.querySelector("#projectDescription")
   
   const newProject = {
-    projectTitle : projectTitle, 
-    projectDescription: projectDescription,
+    projectTitle : projectTitle.value, 
+    projectDescription: projectDescription.value,
     todoArray : [{arow : "milk", carrot : "orange"},workout,5],
   }
+  // clear input fields
+  projectTitle.value = ""
+  projectDescription.value = ""
+
   return newProject
 }
 
