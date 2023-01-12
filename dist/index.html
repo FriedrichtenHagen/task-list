@@ -23,7 +23,7 @@
     </div>
     <div class="content">
         <div class="contentTitle">Project: Art</div>
-        <div class="contentTasks">
+        <div class="taskList">
             <div class="task">
                 <div class="taskLeft">
                     <div class="taskButton">
@@ -87,18 +87,29 @@
     </div>
     <div class="inputFormTask">
         <div class="inputHeader">
-            Add new project:
+            Add new task:
         </div>
             <ul>
                 <li>
-                    <input type="text" id="taskTitle" placeholder="asdfadsTitle" minlength="2">
+                    <input type="text" id="taskTitle" placeholder="task title" minlength="2">
                 </li>
                 <li>
-                    <input type="text" id="taskDescription" placeholder="Description" minlength="2">
+                    <input type="text" id="taskDescription" placeholder="task description" minlength="2">
+                </li>
+                <li>
+                    <input type="date" name="" id="taskDate">
+                </li>
+                <li>
+                    <select name="taskPriority" id="taskPriority">
+                        <option value="1">low</option>
+                        <option value="2">medium</option>
+                        <option value="3">high</option>
+                    </select>
                 </li>
                 <li id="submitButton">
                         <button class="taskSubmitButton">Save</button>
                 </li>
+   
             </ul>
     </div>
     <div class="inputScreenProject"></div>

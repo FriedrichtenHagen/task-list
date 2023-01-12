@@ -22,6 +22,7 @@ inputScreenTask.addEventListener("click", toggleTaskInput)
 // create project array
 const projectList = []
 
+// event listener on project submit
 const projectSubmitButton = document.querySelector(".projectSubmitButton")
 projectSubmitButton.addEventListener("click", () => {
   let newProject = createProject()
@@ -29,20 +30,53 @@ projectSubmitButton.addEventListener("click", () => {
   projectList.push(newProject)
   paintProjects()
 })
+// event listener on project submit
+const taskSubmitButton = document.querySelector(".taskSubmitButton")
+taskSubmitButton.addEventListener("click", () => {
+  let newTask = createTask()
+  
+  //push to project .push(newProject)
+  paintTasks()
+})
+
 
 // write the logic here (object creation and editing, eventlisteners)
 
 
-// create todo object
+// create task object
 function createTask(title, description, dueDate, priority){
-  return {
-    taskTitle : title,
-    taskDescription : description,
-    taskDueDate : dueDate,
-    taskPriority : priority,
+  const taskTitle = document.querySelector("#taskTitle")
+  const taskDescription = document.querySelector("#taskDescription")
+  const taskDate = document.querySelector("#taskDate")
+  const taskPriority = document.querySelector("#taskPriority")
+
+  const newTask = {
+    taskTitle : taskTitle,
+    taskDescription : taskDescription,
+    taskDate : taskDate,
+    taskPriority : taskPriority,
   }
+  // clear input fields
+  taskTitle.value = ""
+  taskDescription.value = ""
+
+  return newTask
 }
-const workout = createTask("overheadpress", "Work on overhead strength", "01.03.2023", 3)
+
+function paintTasks(){
+  const taskList = document.querySelector(".taskList")
+  // remove existing projects
+  while(taskList.lastChild){
+    taskList.removeChild(taskList.lastChild)
+  }
+  // add all items in projectList array
+  taskList.forEach(element => {
+    let listItem = document.createElement("div")
+    listItem.textContent = element.taskTitle
+    listItem.classList.add("taskText")
+    taskList.appendChild(listItem)
+  });
+}
 
 // create project object
 function createProject(){
@@ -80,6 +114,8 @@ adjust styling to 100% zoom
 fix projectslist, projectlist think of better name
 
 add modal for tasks?
-use existing modal?
+  use existing modal?
+
+add a input on task modal for choosing project
 
 */ 
