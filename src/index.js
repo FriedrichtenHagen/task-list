@@ -49,6 +49,7 @@ function createTask(title, description, dueDate, priority){
   const taskDescription = document.querySelector("#taskDescription")
   const taskDate = document.querySelector("#taskDate")
   const taskPriority = document.querySelector("#taskPriority")
+  const taskProject = document.querySelector("#taskProjects")
 
   const newTask = {
     taskTitle : taskTitle,
