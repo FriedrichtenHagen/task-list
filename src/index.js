@@ -29,13 +29,21 @@ projectSubmitButton.addEventListener("click", () => {
   
   projectList.push(newProject)
   paintProjects()
+  console.log(projectList)
 })
-// event listener on project submit
+// event listener on task submit
 const taskSubmitButton = document.querySelector(".taskSubmitButton")
 taskSubmitButton.addEventListener("click", () => {
   let newTask = createTask()
   
-  //push to project .push(newProject)
+  // decide to which project the task should be pushed
+  for(let i=0; i<projectList.length; i++){
+    if(projectList[i].projectTitle===newTask.taskProject){
+      projectList[i].todoArray.push(newTask)
+    }
+    else(alert("this project does not exist!"))
+  }
+  console.log(projectList)
   paintTasks()
 })
 
@@ -49,13 +57,14 @@ function createTask(title, description, dueDate, priority){
   const taskDescription = document.querySelector("#taskDescription")
   const taskDate = document.querySelector("#taskDate")
   const taskPriority = document.querySelector("#taskPriority")
-  const taskProject = document.querySelector("#taskProjects")
+  const taskProject = document.querySelector("#taskProject")
 
   const newTask = {
     taskTitle : taskTitle,
     taskDescription : taskDescription,
     taskDate : taskDate,
     taskPriority : taskPriority,
+    taskProject: taskProject,
   }
   // clear input fields
   taskTitle.value = ""
@@ -87,7 +96,7 @@ function createProject(){
   const newProject = {
     projectTitle : projectTitle.value, 
     projectDescription: projectDescription.value,
-    todoArray : [{arow : "milk", carrot : "orange"},workout,5],
+    todoArray : [{arow : "milk", carrot : "orange"},5],
   }
   // clear input fields
   projectTitle.value = ""
