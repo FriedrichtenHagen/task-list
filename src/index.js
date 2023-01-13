@@ -44,7 +44,7 @@ taskSubmitButton.addEventListener("click", () => {
     else(alert("this project does not exist!"))
   }
   console.log(projectList)
-  paintTasks()
+  // paintTasks()
 })
 
 
@@ -60,11 +60,11 @@ function createTask(title, description, dueDate, priority){
   const taskProject = document.querySelector("#taskProject")
 
   const newTask = {
-    taskTitle : taskTitle,
-    taskDescription : taskDescription,
-    taskDate : taskDate,
-    taskPriority : taskPriority,
-    taskProject: taskProject,
+    taskTitle : taskTitle.value,
+    taskDescription : taskDescription.value,
+    taskDate : taskDate.value,
+    taskPriority : taskPriority.value,
+    taskProject: taskProject.value,
   }
   // clear input fields
   taskTitle.value = ""
@@ -72,7 +72,7 @@ function createTask(title, description, dueDate, priority){
 
   return newTask
 }
-
+/*
 function paintTasks(){
   const taskList = document.querySelector(".taskList")
   // remove existing projects
@@ -87,7 +87,7 @@ function paintTasks(){
     taskList.appendChild(listItem)
   });
 }
-
+*/
 // create project object
 function createProject(){
   const projectTitle = document.querySelector("#projectTitle")
