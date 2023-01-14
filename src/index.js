@@ -30,12 +30,13 @@ projectSubmitButton.addEventListener("click", () => {
   projectList.push(newProject)
   paintProjects()
   console.log(projectList)
+  updateProjectSelect()
 })
 // event listener on task submit
 const taskSubmitButton = document.querySelector(".taskSubmitButton")
 taskSubmitButton.addEventListener("click", () => {
   let newTask = createTask()
-  
+
   // decide to which project the task should be pushed
   for(let i=0; i<projectList.length; i++){
     if(projectList[i].projectTitle===newTask.taskProject){
@@ -46,6 +47,18 @@ taskSubmitButton.addEventListener("click", () => {
   console.log(projectList)
   // paintTasks()
 })
+
+
+function updateProjectSelect(){
+    // fill project select in task modal with all active projects
+    const taskProjectSelect = document.querySelector("#taskProject")
+    projectList.forEach(element => {
+      let projectOption = document.createElement("option")
+      projectOption.value = element.projectTitle
+      projectOption.textContent = element.projectTitle
+      taskProjectSelect.appendChild(projectOption)
+    })
+}
 
 
 // write the logic here (object creation and editing, eventlisteners)
