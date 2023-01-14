@@ -20,7 +20,7 @@ inputScreenTask.addEventListener("click", toggleTaskInput)
 
 
 // create project array
-const projectList = []
+const projectList = [{projectTitle: "Inbox", projectDescription: "a placeholder Project", projectTaskList: [{taskTitle: "go shopping", taskDescription: "a placeholder task", taskDate: "01.03.23", taskPriority: "low", taskProject: "Inbox"}]}]
 
 // event listener on project submit
 const projectSubmitButton = document.querySelector(".projectSubmitButton")
@@ -40,7 +40,7 @@ taskSubmitButton.addEventListener("click", () => {
   // decide to which project the task should be pushed
   for(let i=0; i<projectList.length; i++){
     if(projectList[i].projectTitle===newTask.taskProject){
-      projectList[i].todoArray.push(newTask)
+      projectList[i].projectTaskList.push(newTask)
     }
     else(alert("this project does not exist!"))
   }
@@ -85,22 +85,18 @@ function createTask(title, description, dueDate, priority){
 
   return newTask
 }
-/*
-function paintTasks(){
+
+// display selected project
+function paintTasks(selectedProject){
   const taskList = document.querySelector(".taskList")
   // remove existing projects
   while(taskList.lastChild){
     taskList.removeChild(taskList.lastChild)
   }
   // add all items in projectList array
-  taskList.forEach(element => {
-    let listItem = document.createElement("div")
-    listItem.textContent = element.taskTitle
-    listItem.classList.add("taskText")
-    taskList.appendChild(listItem)
-  });
+
 }
-*/
+
 // create project object
 function createProject(){
   const projectTitle = document.querySelector("#projectTitle")
@@ -109,7 +105,7 @@ function createProject(){
   const newProject = {
     projectTitle : projectTitle.value, 
     projectDescription: projectDescription.value,
-    todoArray : [{arow : "milk", carrot : "orange"},5],
+    projectTaskList : [],
   }
   // clear input fields
   projectTitle.value = ""
@@ -136,9 +132,6 @@ function paintProjects(){
 adjust styling to 100% zoom
 fix projectslist, projectlist think of better name
 
-add modal for tasks?
-  use existing modal?
 
-add a input on task modal for choosing project
 
 */ 
