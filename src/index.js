@@ -31,6 +31,7 @@ projectSubmitButton.addEventListener("click", () => {
   paintProjects()
   console.log(projectList)
   updateProjectSelect()
+  updateContent()
 })
 // event listener on task submit
 const taskSubmitButton = document.querySelector(".taskSubmitButton")
@@ -45,7 +46,6 @@ taskSubmitButton.addEventListener("click", () => {
     else(alert("this project does not exist!"))
   }
   console.log(projectList)
-  // paintTasks()
 })
 
 
@@ -87,14 +87,20 @@ function createTask(title, description, dueDate, priority){
 }
 
 // display selected project
-function paintTasks(selectedProject){
+function updateContent(selectedProjectIndex){
   const taskList = document.querySelector(".taskList")
   // remove existing projects
   while(taskList.lastChild){
     taskList.removeChild(taskList.lastChild)
   }
-  // add all items in projectList array
+  // add all tasks in projectTaskList
+  projectList[0].projectTaskList.forEach(element => {
+    let newTaskDiv = document.createElement("div")
+    newTaskDiv.classList.add(".task")
+    newTaskDiv.textContent = element.taskTitle
 
+    taskList.append(newTaskDiv)
+  })
 }
 
 // create project object
@@ -128,6 +134,14 @@ function paintProjects(){
     projectsList.appendChild(listItem)
   });
 }
+
+// initial update of content
+paintProjects()
+updateProjectSelect()
+// updateContent()
+
+
+
 /*
 adjust styling to 100% zoom
 fix projectslist, projectlist think of better name
