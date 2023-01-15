@@ -31,7 +31,6 @@ projectSubmitButton.addEventListener("click", () => {
   paintProjects()
   console.log(projectList)
   updateProjectSelect()
-  updateContent()
 })
 // event listener on task submit
 const taskSubmitButton = document.querySelector(".taskSubmitButton")
@@ -90,14 +89,14 @@ function createTask(title, description, dueDate, priority){
 
 // display selected project
 function updateContent(){
-  console.log(this)
+  console.log(this.dataset.projectId)
   const taskList = document.querySelector(".taskList")
   // remove existing tasks
   while(taskList.lastChild){
     taskList.removeChild(taskList.lastChild)
   }
   // add all tasks in projectTaskList
-  projectList[0].projectTaskList.forEach(element => {
+  projectList[this.dataset.projectId].projectTaskList.forEach(element => {
     let newTaskDiv = document.createElement("div")
     newTaskDiv.classList.add(".task")
     newTaskDiv.textContent = element.taskTitle
