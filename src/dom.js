@@ -13,3 +13,8 @@ export function toggleTaskInput(){
   inputFormTask.classList.toggle("active")
   inputScreenTask.classList.toggle("active")
 }
+
+
+
+
+

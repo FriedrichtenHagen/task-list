@@ -43,13 +43,11 @@ taskSubmitButton.addEventListener("click", () => {
     if(projectList[i].projectTitle===newTask.taskProject){
       projectList[i].projectTaskList.push(newTask)
     }
-    else(alert("this project does not exist!"))
   }
   console.log(projectList)
 })
 
-
-function updateProjectSelect(){
+export function updateProjectSelect(){
   const taskProjectSelect = document.querySelector("#taskProject")
   // delete current options
   while(taskProjectSelect.lastChild){
@@ -64,7 +62,6 @@ function updateProjectSelect(){
     taskProjectSelect.appendChild(projectOption)
     })
 }
-
 
 // write the logic here (object creation and editing, eventlisteners)
 
@@ -92,7 +89,8 @@ function createTask(title, description, dueDate, priority){
 }
 
 // display selected project
-function updateContent(selectedProjectIndex){
+function updateContent(){
+  console.log(this)
   const taskList = document.querySelector(".taskList")
   // remove existing tasks
   while(taskList.lastChild){
@@ -132,11 +130,18 @@ function paintProjects(){
     projectsList.removeChild(projectsList.lastChild)
   }
   // add all items in projectList array
-  projectList.forEach(element => {
+  projectList.forEach((element, index)=> {
     let listItem = document.createElement("div")
     listItem.textContent = element.projectTitle
     listItem.classList.add("menuProject")
+    listItem.dataset.projectId = index
+    listItem.addEventListener("click", updateContent, false)
+
     projectsList.appendChild(listItem)
+
+
+
+
   });
 }
 
