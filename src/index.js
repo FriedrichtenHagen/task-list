@@ -50,13 +50,18 @@ taskSubmitButton.addEventListener("click", () => {
 
 
 function updateProjectSelect(){
-    // fill project select in task modal with all active projects
-    const taskProjectSelect = document.querySelector("#taskProject")
-    projectList.forEach(element => {
-      let projectOption = document.createElement("option")
-      projectOption.value = element.projectTitle
-      projectOption.textContent = element.projectTitle
-      taskProjectSelect.appendChild(projectOption)
+  const taskProjectSelect = document.querySelector("#taskProject")
+  // delete current options
+  while(taskProjectSelect.lastChild){
+    taskProjectSelect.removeChild(taskProjectSelect.lastChild)
+  }
+
+  // fill project select in task modal with all active projects
+  projectList.forEach(element => {
+    let projectOption = document.createElement("option")
+    projectOption.value = element.projectTitle
+    projectOption.textContent = element.projectTitle
+    taskProjectSelect.appendChild(projectOption)
     })
 }
 
@@ -89,7 +94,7 @@ function createTask(title, description, dueDate, priority){
 // display selected project
 function updateContent(selectedProjectIndex){
   const taskList = document.querySelector(".taskList")
-  // remove existing projects
+  // remove existing tasks
   while(taskList.lastChild){
     taskList.removeChild(taskList.lastChild)
   }
