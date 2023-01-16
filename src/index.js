@@ -105,7 +105,6 @@ function updateContent(){
         // task button
         let newTaskButton = document.createElement("div")
         newTaskButton.classList.add("taskButton")
-        newTaskButton.textContent = "o"
         newTaskLeft.appendChild(newTaskButton)
         // task text
         let newTaskText = document.createElement("div")

@@ -86,9 +86,14 @@ body{
 }
 .taskLeft{
     display: flex;
+    align-items: center;
 }
 .taskButton{
     margin-right: 5px;
+    border-radius: 20px;
+    border: 0.5px solid black;
+    height: 0.7rem;
+    width: 0.7rem;
 }
 .taskRight{
     font-size: 0.5rem;
