@@ -18,9 +18,10 @@ newTaskButton.addEventListener("click", toggleTaskInput)
 const inputScreenTask = document.querySelector(".inputScreenTask")
 inputScreenTask.addEventListener("click", toggleTaskInput)
 
+let currentProjectIndex = 0
 
 // create project array
-const projectList = [{projectTitle: "Inbox", projectDescription: "a placeholder Project", projectTaskList: [{taskTitle: "go shopping", taskDescription: "a placeholder task", taskDate: "01.03.23", taskPriority: "low", taskProject: "Inbox"}]}]
+const projectList = [{projectTitle: "Inbox", projectDescription: "a placeholder Project", projectTaskList: [{taskTitle: "go shopping", taskDescription: "a placeholder task", taskDate: "01.03.23", taskPriority: "low", taskProject: "Inbox"}, {taskTitle: "Seltene Erden", taskDescription: "Es ist wichtig, dass mal regelmäßig neue Erden prüft. So kann man garantieren, dass alles stimmt.", taskDate: "14.11.23", taskPriority: "high", taskProject: "Inbox"}]}]
 
 // event listener on project submit
 const projectSubmitButton = document.querySelector(".projectSubmitButton")
@@ -37,13 +38,17 @@ const taskSubmitButton = document.querySelector(".taskSubmitButton")
 taskSubmitButton.addEventListener("click", () => {
   let newTask = createTask()
 
+  // clear input fields
+  taskTitle.value = ""
+  taskDescription.value = ""
+
   // decide to which project the task should be pushed
   for(let i=0; i<projectList.length; i++){
     if(projectList[i].projectTitle===newTask.taskProject){
       projectList[i].projectTaskList.push(newTask)
     }
   }
-  console.log(projectList)
+  displayTasks()
 })
 
 export function updateProjectSelect(){
@@ -62,7 +67,6 @@ export function updateProjectSelect(){
     })
 }
 
-// write the logic here (object creation and editing, eventlisteners)
 
 
 // create task object
@@ -80,23 +84,18 @@ function createTask(title, description, dueDate, priority){
     taskPriority : taskPriority.value,
     taskProject: taskProject.value,
   }
-  // clear input fields
-  taskTitle.value = ""
-  taskDescription.value = ""
-
   return newTask
 }
 
-// display selected project
-function updateContent(){
-  console.log(this.dataset.projectId)
+// display tasks of selected project
+function displayTasks(){
   const taskList = document.querySelector(".taskList")
   // remove existing tasks
   while(taskList.lastChild){
     taskList.removeChild(taskList.lastChild)
   }
   // add all tasks in projectTaskList
-  projectList[this.dataset.projectId].projectTaskList.forEach(element => {
+  projectList[currentProjectIndex].projectTaskList.forEach(element => {
     let newTaskDiv = document.createElement("div")
     newTaskDiv.classList.add("task")
       // task header
@@ -127,9 +126,7 @@ function updateContent(){
       newTaskExpand.classList.add("taskExpand")
       newTaskExpand.textContent = element.taskDescription
       newTaskDiv.append(newTaskExpand)
-
     taskList.append(newTaskDiv)
-
 
     // add eventlistener to task
     newTaskDiv.addEventListener("mouseover", function(){
@@ -139,14 +136,14 @@ function updateContent(){
       displayFullTask(newTaskExpand)
     })
   })
-
-  function displayFullTask(p1){
-    p1.classList.toggle("taskExpandActive")
-  }
-
-  // update contentProjectTitle
-  const contentProjectTitle = document.querySelector(".contentProjectTitle")
-  contentProjectTitle.textContent = projectList[this.dataset.projectId].projectTitle
+}
+function displayFullTask(task){
+  task.classList.toggle("taskExpandActive")
+}
+function displayCurrentProjectTitle(){
+   // update contentProjectTitle
+   const contentProjectTitle = document.querySelector(".contentProjectTitle")
+   contentProjectTitle.textContent = projectList[currentProjectIndex].projectTitle
 }
 
 // create project object
@@ -178,12 +175,17 @@ function paintProjects(){
     listItem.textContent = element.projectTitle
     listItem.classList.add("menuProject")
     listItem.dataset.projectId = index
-    listItem.addEventListener("click", updateContent, false)
+    listItem.addEventListener("click", () => {
+      // change currentProjectIndex on click
+      currentProjectIndex = index
+      displayCurrentProjectTitle()
+      displayTasks()
+
+    }) 
+    
+
 
     projectsList.appendChild(listItem)
-
-
-
 
   });
 }
@@ -191,7 +193,8 @@ function paintProjects(){
 // initial update of content
 paintProjects()
 updateProjectSelect()
-// updateContent()
+displayCurrentProjectTitle()
+displayTasks()
 
 
 
