@@ -119,7 +119,14 @@ function updateContent(){
         newTaskRight.textContent = element.taskDate
       newTaskDiv.append(newTaskRight)
     taskList.append(newTaskDiv)
+
+    // add eventlistener to task
+    newTaskDiv.addEventListener("mouseover", displayFullTask)
   })
+
+  function displayFullTask(){
+    console.log(this.textContent)
+  }
 
   // update contentProjectTitle
   const contentProjectTitle = document.querySelector(".contentProjectTitle")
@@ -176,11 +183,12 @@ updateProjectSelect()
 adjust styling to 100% zoom
 fix projectslist, projectlist think of better name
 
-add styling and content to tasks
+
 add dropdown to tasks
 update content on modal submit
 
-delete tasks and projects
+delete button for tasks and projects
 
+create a mobile version
 
 */ 
