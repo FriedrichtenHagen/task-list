@@ -98,11 +98,15 @@ function updateContent(){
   // add all tasks in projectTaskList
   projectList[this.dataset.projectId].projectTaskList.forEach(element => {
     let newTaskDiv = document.createElement("div")
-    newTaskDiv.classList.add(".task")
+    newTaskDiv.classList.add("task")
     newTaskDiv.textContent = element.taskTitle
 
     taskList.append(newTaskDiv)
   })
+
+  // update contentProjectTitle
+  const contentProjectTitle = document.querySelector(".contentProjectTitle")
+  contentProjectTitle.textContent = projectList[this.dataset.projectId].projectTitle
 }
 
 // create project object
