@@ -202,11 +202,16 @@ displayTasks()
 adjust styling to 100% zoom
 fix projectslist, projectlist think of better name
 
+add delete button functionality for tasks
+display priority in dropdown
 
-add dropdown to tasks
-update content on modal submit
 
-delete button for tasks and projects
+style task modal (align inputs)
+change date format to european standard
+
+
+delete button for projects
+drop down description for projects
 
 create a mobile version
 
