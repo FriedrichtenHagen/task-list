@@ -99,8 +99,25 @@ function updateContent(){
   projectList[this.dataset.projectId].projectTaskList.forEach(element => {
     let newTaskDiv = document.createElement("div")
     newTaskDiv.classList.add("task")
-    newTaskDiv.textContent = element.taskTitle
-
+      // task left
+      let newTaskLeft = document.createElement("div")
+      newTaskLeft.classList.add("taskLeft")
+        // task button
+        let newTaskButton = document.createElement("div")
+        newTaskButton.classList.add("taskButton")
+        newTaskButton.textContent = "o"
+        newTaskLeft.appendChild(newTaskButton)
+        // task text
+        let newTaskText = document.createElement("div")
+        newTaskText.classList.add("taskText")
+        newTaskText.textContent = element.taskTitle
+        newTaskLeft.appendChild(newTaskText)
+      newTaskDiv.append(newTaskLeft)
+        // task right
+        let newTaskRight = document.createElement("div")
+        newTaskRight.classList.add("taskRight")
+        newTaskRight.textContent = element.taskDate
+      newTaskDiv.append(newTaskRight)
     taskList.append(newTaskDiv)
   })
 
@@ -159,6 +176,11 @@ updateProjectSelect()
 adjust styling to 100% zoom
 fix projectslist, projectlist think of better name
 
+add styling and content to tasks
+add dropdown to tasks
+update content on modal submit
+
+delete tasks and projects
 
 
 */ 
