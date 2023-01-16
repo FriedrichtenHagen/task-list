@@ -99,32 +99,49 @@ function updateContent(){
   projectList[this.dataset.projectId].projectTaskList.forEach(element => {
     let newTaskDiv = document.createElement("div")
     newTaskDiv.classList.add("task")
-      // task left
-      let newTaskLeft = document.createElement("div")
-      newTaskLeft.classList.add("taskLeft")
-        // task button
-        let newTaskButton = document.createElement("div")
-        newTaskButton.classList.add("taskButton")
-        newTaskLeft.appendChild(newTaskButton)
-        // task text
-        let newTaskText = document.createElement("div")
-        newTaskText.classList.add("taskText")
-        newTaskText.textContent = element.taskTitle
-        newTaskLeft.appendChild(newTaskText)
-      newTaskDiv.append(newTaskLeft)
-        // task right
-        let newTaskRight = document.createElement("div")
-        newTaskRight.classList.add("taskRight")
-        newTaskRight.textContent = element.taskDate
-      newTaskDiv.append(newTaskRight)
+      // task header
+      let newTaskHeader = document.createElement("div")
+      newTaskHeader.classList.add("taskHeader")
+        // task left
+        let newTaskLeft = document.createElement("div")
+        newTaskLeft.classList.add("taskLeft")
+          // task button
+          let newTaskButton = document.createElement("div")
+          newTaskButton.classList.add("taskButton")
+          newTaskLeft.appendChild(newTaskButton)
+          // task text
+          let newTaskText = document.createElement("div")
+          newTaskText.classList.add("taskText")
+          newTaskText.textContent = element.taskTitle
+          newTaskLeft.appendChild(newTaskText)
+        newTaskHeader.append(newTaskLeft)
+          // task right
+          let newTaskRight = document.createElement("div")
+          newTaskRight.classList.add("taskRight")
+          newTaskRight.textContent = element.taskDate
+        newTaskHeader.append(newTaskRight)
+      newTaskDiv.append(newTaskHeader)
+      
+      // append concealed further task infos
+      let newTaskExpand = document.createElement("div")
+      newTaskExpand.classList.add("taskExpand")
+      newTaskExpand.textContent = element.taskDescription
+      newTaskDiv.append(newTaskExpand)
+
     taskList.append(newTaskDiv)
 
+
     // add eventlistener to task
-    newTaskDiv.addEventListener("mouseover", displayFullTask)
+    newTaskDiv.addEventListener("mouseover", function(){
+      displayFullTask(newTaskExpand)
+    })
+    newTaskDiv.addEventListener("mouseout", function(){
+      displayFullTask(newTaskExpand)
+    })
   })
 
-  function displayFullTask(){
-    console.log(this.textContent)
+  function displayFullTask(p1){
+    p1.classList.toggle("taskExpandActive")
   }
 
   // update contentProjectTitle

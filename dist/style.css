@@ -75,14 +75,18 @@ body{
     margin-top: 5px;
 }
 .task{
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
     border-radius: 5px;
     padding: 1px 3px 1px 3px;
 }
 .task:hover, .newTaskButton:hover{
     background-color: var(--secondary-color);
+}
+.taskHeader{
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 1px 3px 1px 3px;
 }
 .taskLeft{
     display: flex;
@@ -110,6 +114,16 @@ body{
     padding: 1px;
     cursor: pointer;
     font-size: 0.8rem;
+}
+.taskExpand{
+    background-color: var(--secondary-color);
+    display: none;
+    border-radius: 0px 0px 5px 5px;
+    padding: 5px;
+    font-size: 0.5rem;
+}
+.taskExpandActive{
+    display: block;
 }
 .contentPlus{
     margin-right: 5px;
