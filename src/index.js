@@ -228,7 +228,7 @@ change date format to european standard
 
 
 delete button for projects
-drop down description for projects
+remove pointer from elements that can not be clicked (titles, descriptions)
 
 create a mobile version
 
