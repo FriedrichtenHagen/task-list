@@ -51,7 +51,7 @@ taskSubmitButton.addEventListener("click", () => {
   displayTasks()
 })
 
-export function updateProjectSelect(){
+function updateProjectSelect(){
   const taskProjectSelect = document.querySelector("#taskProject")
   // delete current options
   while(taskProjectSelect.lastChild){
@@ -182,13 +182,30 @@ function paintProjects(){
       displayTasks()
 
     }) 
-    
+    // append concealed further project infos
+    let newProjectExpand = document.createElement("div")
+    newProjectExpand.classList.add("projectExpand")
+    newProjectExpand.textContent = element.projectDescription
+    listItem.append(newProjectExpand)
 
+
+    // add eventlistener for hover expand
+    listItem.addEventListener("mouseover", function(){
+      displayFullProject(newProjectExpand)
+    })
+    listItem.addEventListener("mouseout", function(){
+      displayFullProject(newProjectExpand)
+    })
 
     projectsList.appendChild(listItem)
 
   });
 }
+
+function displayFullProject(project){
+  project.classList.toggle("projectExpandActive")
+}
+
 
 // initial update of content
 paintProjects()
