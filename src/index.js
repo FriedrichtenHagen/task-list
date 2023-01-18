@@ -18,10 +18,10 @@ newTaskButton.addEventListener("click", toggleTaskInput)
 const inputScreenTask = document.querySelector(".inputScreenTask")
 inputScreenTask.addEventListener("click", toggleTaskInput)
 
-let currentProjectIndex = 0
+let currentProjectIndex = 0 // start on inbox
 
 // create project array
-const projectList = [{projectTitle: "Inbox", projectDescription: "a placeholder Project", projectTaskList: [{taskTitle: "go shopping", taskDescription: "a placeholder task", taskDate: "01.03.23", taskPriority: "low", taskProject: "Inbox"}, {taskTitle: "Seltene Erden", taskDescription: "Es ist wichtig, dass mal regelmäßig neue Erden prüft. So kann man garantieren, dass alles stimmt.", taskDate: "14.11.23", taskPriority: "high", taskProject: "Inbox"}]}]
+const projectList = [{projectTitle: "Inbox", projectDescription: "a placeholder Project", projectTaskList: [{taskTitle: "go shopping", taskDescription: "a placeholder task", taskDate: "01.03.23", taskPriority: "low", taskProject: "Inbox"}, {taskTitle: "Seltene Erden", taskDescription: "Es ist wichtig, dass mal regelmäßig neue Erden prüft. So kann man garantieren, dass alles stimmt.", taskDate: "14.11.23", taskPriority: "high", taskProject: "Inbox"}, {taskTitle: "Mehr sehen", taskDescription: "dalökjdsflrg lkwr rlkmfrelkalvldskfmnlsdfijirae f.", taskDate: "14.11.23", taskPriority: "high", taskProject: "Inbox"}]}, {projectTitle: "Sports", projectDescription: "a placeholder Project", projectTaskList: [{taskTitle: "go shopping", taskDescription: "a placeholder task", taskDate: "01.03.23", taskPriority: "low", taskProject: "Inbox"}, {taskTitle: "Seltene Erden", taskDescription: "Es ist wichtig, dass mal regelmäßig neue Erden prüft. So kann man garantieren, dass alles stimmt.", taskDate: "14.11.23", taskPriority: "high", taskProject: "Inbox"}, {taskTitle: "Mehr sehen", taskDescription: "dalökjdsflrg lkwr rlkmfrelkalvldskfmnlsdfijirae f.", taskDate: "14.11.23", taskPriority: "high", taskProject: "Inbox"}]}]
 
 // event listener on project submit
 const projectSubmitButton = document.querySelector(".projectSubmitButton")
@@ -95,7 +95,7 @@ function displayTasks(){
     taskList.removeChild(taskList.lastChild)
   }
   // add all tasks in projectTaskList
-  projectList[currentProjectIndex].projectTaskList.forEach(element => {
+  projectList[currentProjectIndex].projectTaskList.forEach((element, index) => {
     let newTaskDiv = document.createElement("div")
     newTaskDiv.classList.add("task")
       // task header
@@ -106,6 +106,11 @@ function displayTasks(){
         newTaskLeft.classList.add("taskLeft")
           // task button
           let newTaskButton = document.createElement("div")
+          // add eventlistener for deleting task
+          newTaskButton.addEventListener("click", function(){
+            projectList[currentProjectIndex].projectTaskList.splice(index,1)
+            displayTasks()
+          })
           newTaskButton.classList.add("taskButton")
           newTaskLeft.appendChild(newTaskButton)
           // task text
@@ -137,6 +142,8 @@ function displayTasks(){
     })
   })
 }
+
+
 function displayFullTask(task){
   task.classList.toggle("taskExpandActive")
 }

@@ -84,7 +84,6 @@ body{
 .taskHeader{
     display: flex;
     justify-content: space-between;
-    cursor: pointer;
     border-radius: 5px;
     padding: 1px 3px 1px 3px;
 }
@@ -98,6 +97,10 @@ body{
     border: 0.5px solid black;
     height: 0.7rem;
     width: 0.7rem;
+    cursor: pointer;
+}
+.taskButton:after:hover{
+    content: "X";
 }
 .taskRight{
     font-size: 0.5rem;
