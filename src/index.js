@@ -226,7 +226,6 @@ displayTasks()
 adjust styling to 100% zoom
 fix projectslist, projectlist think of better name
 
-add delete button functionality for tasks
 display priority in dropdown
 
 

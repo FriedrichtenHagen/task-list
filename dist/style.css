@@ -2,6 +2,11 @@
     --main-color: #dfdfff;
     --secondary-color: azure;
 }
+html, body{
+    min-height: 100vh;
+    padding: 0px;
+    margin: 0px;
+}
 @font-face {
     font-family: "lato";
     src: url("Lato/Lato-Regular.ttf");
@@ -9,9 +14,6 @@
 
 body{
     display: flex;
-    padding: 0px;
-    margin: 0px;
-    height: 100vh;
     font-family: 'lato', serif ;
 }
 .menu{
@@ -60,8 +62,8 @@ body{
 }
 .content{
     background-color: var(--main-color);
-    width: 100%;
     padding: 65px;
+    width: 100%;
 }
 .contentTitle{
     font-size: 2rem;
@@ -218,6 +220,44 @@ li>button{
 li>button:hover {
     filter: brightness(90%);
 }
+.menuMobile{
+    background-color: aliceblue;
+}
+.menuMobile{
+    display: none;
+}
+.menuMobileDropdown{
+    display: none;
+}
 
+/* mobile view*/
 
+@media only screen and (max-width: 600px) {
+    .menu{
+        display: none;
+    }
+    body{
+        display: flex;
+        flex-direction: column;
+    }
+    .content{
+        height: calc(100vh - 30px);
+        padding: 20px;
+        width: auto;
+    }
+    .menuMobile{
+        display: flex;
+        height: 30px;
+        justify-content: flex-end;
+        align-items: center;
+        background-color: var(--secondary-color);
 
+    }
+    .burgerMenu{
+        padding: 5px;
+        margin-right: 10px;
+    }
+    .menuMobileDropdown{
+        background-color: var(--secondary-color);
+    }
+  }
