@@ -26,7 +26,7 @@ body{
     font-family: 'lato', serif ;
 }
 .menu{
-    width: 100px;
+    width: 200px;
     background-color: var(--secondary-color);
     padding: 5px;
     display: flex;
@@ -58,13 +58,17 @@ body{
     border-radius: 5px;
     padding: 1px 3px 1px 3px;
     cursor: pointer;
+    font-size: 1.5rem;
 }
 
 .newProjectButton:hover, .menuProject:hover{
     background-color: var(--main-color)
 }
+.projects{
+    width: 100%;
+}
 .projectsTitle{
-    font-size: 1.2rem;
+    font-size: 2rem;
     margin: 50px 0px 10px;
     font-weight: bold;
 
@@ -152,7 +156,7 @@ body{
     display: none;
     border-radius: 0px 0px 5px 5px;
     padding: 5px;
-    font-size: 0.5rem;
+    font-size: 1rem;
 }
 .projectExpandActive{
     display: block;
