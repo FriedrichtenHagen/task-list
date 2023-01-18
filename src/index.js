@@ -216,8 +216,13 @@ function displayFullProject(project){
 function displayMobileMenu(){
   const burgerMenu = document.querySelector(".burgerMenu")
   const menu = document.querySelector(".menu")
+  const line1 = document.querySelector('.line1');
+  const line2 = document.querySelector('.line2');
+  const line3 = document.querySelector('.line3');
+
   burgerMenu.addEventListener("click", () => {
     menu.classList.toggle("menuMobileActive")
+    burgerMenu.classList.toggle("toggle")
   })
 }
 

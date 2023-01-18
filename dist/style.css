@@ -262,10 +262,35 @@ li>button:hover {
         padding: 20px;
     }
     .burgerMenu{
-        padding: 5px;
         margin-right: 10px;
-        border: 1px solid black;
+        font-size: 2rem;
+     
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      
+        
     }
+    .line1, .line2, .line3{
+        margin-top: 5px;
+        width: 1.5rem;
+        height: 1px;
+        background-color: black;
+    }
+    .line1, .line3{
+        transition: all 0.3s ease;
+    }
+    .toggle .line1{
+        transform: rotate(-45deg) translate(-4px,4.6px);
+      }
+      .toggle .line2{
+        opacity: 0;
+      }
+      .toggle .line3{
+        transform: rotate(45deg) translate(-4px,-4.6px);
+      }
+      
     .projectsTitle{
         margin: 0px 0px 10px;
     }
