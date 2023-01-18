@@ -241,23 +241,35 @@ li>button:hover {
         flex-direction: column;
     }
     .content{
-        height: calc(100vh - 30px);
+        height: calc(100vh - 90px);
         padding: 20px;
         width: auto;
     }
     .menuMobile{
         display: flex;
-        height: 30px;
+        height: 50px;
         justify-content: flex-end;
         align-items: center;
-        background-color: var(--secondary-color);
+        background-color: var(--main-color);
 
+    }
+    .menuMobileActive{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+        width: auto;
+        padding: 20px;
     }
     .burgerMenu{
         padding: 5px;
         margin-right: 10px;
+        border: 1px solid black;
     }
-    .menuMobileDropdown{
-        background-color: var(--secondary-color);
+    .projectsTitle{
+        margin: 0px 0px 10px;
+    }
+    .newProjectButton{
+        margin-top: 0px;
     }
   }

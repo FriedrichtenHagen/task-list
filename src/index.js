@@ -213,13 +213,22 @@ function displayFullProject(project){
   project.classList.toggle("projectExpandActive")
 }
 
+function displayMobileMenu(){
+  const burgerMenu = document.querySelector(".burgerMenu")
+  const menu = document.querySelector(".menu")
+  burgerMenu.addEventListener("click", () => {
+    menu.classList.toggle("menuMobileActive")
+  })
+}
+
+
 
 // initial update of content
 paintProjects()
 updateProjectSelect()
 displayCurrentProjectTitle()
 displayTasks()
-
+displayMobileMenu()
 
 
 /*
