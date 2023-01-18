@@ -240,7 +240,7 @@ displayMobileMenu()
 adjust styling to 100% zoom
 fix projectslist, projectlist think of better name
 
-display priority in dropdown
+display priority in dropdown?
 
 
 style task modal (align inputs)
@@ -250,7 +250,7 @@ change date format to european standard
 delete button for projects
 remove pointer from elements that can not be clicked (titles, descriptions)
 
-create a mobile version
+make all content editable
 
 add sort function for date
 
