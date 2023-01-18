@@ -98,9 +98,14 @@ body{
     height: 0.7rem;
     width: 0.7rem;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 1s;
 }
-.taskButton:after:hover{
-    content: "X";
+.taskButton:hover{
+    background-color: rgb(255, 90, 90);
+    transform: scale(1.1);
 }
 .taskRight{
     font-size: 0.5rem;
