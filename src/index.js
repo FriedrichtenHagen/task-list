@@ -227,6 +227,22 @@ function displayMobileMenu(){
 }
 
 
+// check if local storage is populated
+if (!localStorage.getItem('projectList')) {
+  setStorage();
+} else {
+  getStorage();
+}
+// initial filling of storage
+function setStorage(){
+  localStorage.setItem("projectList", projectList)
+
+}
+// edit existing storage
+function getStorage(){
+  projectList = localStorage.getItem('projectList');
+  
+}
 
 // initial update of content
 paintProjects()
@@ -242,10 +258,11 @@ fix projectslist, projectlist think of better name
 
 display priority in dropdown?
 
+improve layout on really wide displays
+
 
 style task modal (align inputs)
-change date format to european standard
-
+make a footer?
 
 delete button for projects
 remove pointer from elements that can not be clicked (titles, descriptions)
