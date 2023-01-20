@@ -298,10 +298,9 @@ style task modal (align inputs)
 make a footer?
 style input modals for mobile
 
-save content to localstorage
 fix github pages
 
-delete button for projects
+delete button for projects BUG! (might have to do with event propagation)
 remove pointer from elements that can not be clicked (titles, descriptions)
 
 make all content editable
