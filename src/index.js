@@ -196,6 +196,28 @@ function paintProjects(){
     let newProjectExpand = document.createElement("div")
     newProjectExpand.classList.add("projectExpand")
     newProjectExpand.textContent = element.projectDescription
+    // add trash icon
+    let trashIcon = document.createElement("img")
+    trashIcon.classList.add("trashIcon")
+    trashIcon.src = "trash-icon.png"
+    // add project delete eventlistener
+    trashIcon.addEventListener("click", () => {
+      // remove project from projectList
+      projectList.splice(index, 1)
+      // repaint project menu
+      paintProjects()
+      // update project select in modal
+      updateProjectSelect()
+      // repaint content
+        // change currentProjectIndex
+
+      // update storage
+      setStorage()
+    })
+    
+    newProjectExpand.append(trashIcon)
+
+ 
     listItem.append(newProjectExpand)
 
 
