@@ -32,6 +32,7 @@ projectSubmitButton.addEventListener("click", () => {
   paintProjects()
   console.log(projectList)
   updateProjectSelect()
+  setStorage()
 })
 // event listener on task submit
 const taskSubmitButton = document.querySelector(".taskSubmitButton")
@@ -49,6 +50,7 @@ taskSubmitButton.addEventListener("click", () => {
     }
   }
   displayTasks()
+  setStorage()
 })
 
 function updateProjectSelect(){
@@ -110,6 +112,7 @@ function displayTasks(){
           newTaskButton.addEventListener("click", function(){
             projectList[currentProjectIndex].projectTaskList.splice(index,1)
             displayTasks()
+            setStorage()
           })
           newTaskButton.classList.add("taskButton")
           newTaskLeft.appendChild(newTaskButton)
@@ -226,24 +229,27 @@ function displayMobileMenu(){
   })
 }
 
+// initial filling of previously empty storage
+function setStorage(){
+  // localStorage only accepts string datatype
+  // object (projectList) needs to be converted to JSON
+  localStorage.setItem("projectList", JSON.stringify(projectList))
+}
+// edit existing storage
+function getStorage(){
+  let localStorageReturn = JSON.parse(localStorage.getItem('projectList')) 
+  console.log(localStorageReturn)
+  return localStorageReturn
+}
+
 
 // check if local storage is populated
 if (!localStorage.getItem('projectList')) {
   setStorage();
 } else {
-  getStorage();
+  // update projectList to local storage content
+  projectList = getStorage();
 }
-// initial filling of storage
-function setStorage(){
-  localStorage.setItem("projectList", projectList)
-
-}
-// edit existing storage
-function getStorage(){
-  let test = localStorage.getItem('projectList');
-  console.log(test)
-}
-
 // initial update of content
 paintProjects()
 updateProjectSelect()
