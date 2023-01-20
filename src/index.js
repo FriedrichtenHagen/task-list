@@ -259,10 +259,14 @@ fix projectslist, projectlist think of better name
 display priority in dropdown?
 
 improve layout on really wide displays
-
+make tasks markable as finished (save these similiar to google tasks in lower menu)
 
 style task modal (align inputs)
 make a footer?
+style input modals for mobile
+
+save content to localstorage
+fix github pages
 
 delete button for projects
 remove pointer from elements that can not be clicked (titles, descriptions)
