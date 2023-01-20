@@ -33,12 +33,21 @@ body{
     flex-direction: column;
     align-items: center;
 }
+.projects{
+    width: 100%;
+}
+.projectMenuHead{
+    display: flex;
+    flex-direction: column;
+
+}
 .newProjectButton{
     font-size: 2rem;
     padding: 1px;
     border-radius: 30px;
     display: flex;
     justify-content: center;
+    align-self: center;
     align-items: center;
     margin-top: 20px;
     width: 2rem;
@@ -64,9 +73,7 @@ body{
 .newProjectButton:hover, .menuProject:hover{
     background-color: var(--main-color)
 }
-.projects{
-    width: 100%;
-}
+
 .projectsTitle{
     font-size: 2rem;
     margin: 50px 0px 10px;
@@ -269,7 +276,10 @@ li>button:hover {
         background-color: var(--main-color);
         
     }
-
+    .projectMenuHead{
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
 
     .menuMobileActive{
         display: flex;
