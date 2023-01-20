@@ -204,22 +204,27 @@ function paintProjects(){
     trashIcon.addEventListener("click", () => {
       // remove project from projectList
       projectList.splice(index, 1)
+        // change currentProjectIndex
+        console.log(currentProjectIndex)
+      if(currentProjectIndex!==0){
+        currentProjectIndex--
+      }else{
+        currentProjectIndex++
+      }
+      console.log(currentProjectIndex)
       // repaint project menu
       paintProjects()
+      // repaint content
+      displayCurrentProjectTitle()
+      displayTasks()
       // update project select in modal
       updateProjectSelect()
-      // repaint content
-        // change currentProjectIndex
-
       // update storage
       setStorage()
     })
     
-    newProjectExpand.append(trashIcon)
-
- 
+    newProjectExpand.append(trashIcon) 
     listItem.append(newProjectExpand)
-
 
     // add eventlistener for hover expand
     listItem.addEventListener("mouseover", function(){
