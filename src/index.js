@@ -201,7 +201,9 @@ function paintProjects(){
     trashIcon.classList.add("trashIcon")
     trashIcon.src = "trash-icon.png"
     // add project delete eventlistener
-    trashIcon.addEventListener("click", () => {
+    trashIcon.addEventListener("click", (e) => {
+      // stop the event from propagationg up
+      e.stopPropagation();
       // remove project from projectList
       projectList.splice(index, 1)
         // change currentProjectIndex
