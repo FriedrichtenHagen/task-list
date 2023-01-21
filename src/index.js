@@ -307,4 +307,8 @@ make all content editable
 
 add sort function for date
 
+add input validation
+  regex
+  no empty projects
+
 */ 
