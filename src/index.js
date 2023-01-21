@@ -174,10 +174,10 @@ function createProject(){
 }
 
 function paintProjects(){
-  const projectsList = document.querySelector(".projectsList")
+  const projectMenuList = document.querySelector(".projectsList")
   // remove existing projects
-  while(projectsList.lastChild){
-    projectsList.removeChild(projectsList.lastChild)
+  while(projectMenuList.lastChild){
+    projectMenuList.removeChild(projectMenuList.lastChild)
   }
   // add all items in projectList array
   projectList.forEach((element, index)=> {
@@ -236,7 +236,7 @@ function paintProjects(){
       displayFullProject(newProjectExpand)
     })
 
-    projectsList.appendChild(listItem)
+    projectMenuList.appendChild(listItem)
 
   });
 }
@@ -288,29 +288,29 @@ displayMobileMenu()
 
 
 /*
-adjust styling to 100% zoom
-fix projectslist, projectlist think of better name
-
-display priority in dropdown?
-
+display priority in some way
 improve layout on really wide displays
+
+move delete eventlistener to task trash icon
+
 make tasks markable as finished (save these similiar to google tasks in lower menu)
+  write logic: 
+    task needs boolean completed property
+    projects need projectTaskListCompleted
+  write DOM Manipulation:
+    create html footer for finished tasks
+    function displayTasksCompleted()
 
-style task modal (align inputs)
-make a footer?
-style input modals for mobile
 
-fix github pages
-
-delete button for projects BUG! (might have to do with event propagation)
-remove pointer from elements that can not be clicked (titles, descriptions)
 
 make all content editable
 
 add sort function for date
 
-add input validation
-  regex
-  no empty projects
+Modals
+  style task modal (align inputs)
+  add input validation
+    this requires the inputs to be coded as forms
+    e.preventDefault to prevent the form from being submitted to a nonexistant backend
 
 */ 
