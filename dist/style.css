@@ -84,6 +84,9 @@ body{
     background-color: var(--main-color);
     padding: 65px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .contentTitle{
     font-size: 3rem;
@@ -191,8 +194,15 @@ body{
     height: 1.5rem;
     font-weight: bold;
 }
-
-
+.contentCompleted{
+    border: 0.5px solid black;
+    min-height: 200px;
+}
+.contentCompletedHeader{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
 /*
 Input Modal
 */
