@@ -110,9 +110,17 @@ function displayTasks(){
           let newTaskButton = document.createElement("div")
           // add eventlistener for deleting task
           newTaskButton.addEventListener("click", function(){
-            projectList[currentProjectIndex].projectTaskList.splice(index,1)
-            displayTasks()
-            setStorage()
+            // add function to toggle complete status here!
+            newTaskDiv.classList.toggle("taskCompleted")
+
+            toggleTaskCompleted(element, index)
+            /*
+          write DOM Manipulation:
+            create html footer for finished tasks
+            function displayTasksCompleted()
+*/
+
+
           })
           newTaskButton.classList.add("taskButton")
           newTaskLeft.appendChild(newTaskButton)
@@ -145,7 +153,6 @@ function displayTasks(){
         // remove task from projectList.projectTaskList
         projectList[currentProjectIndex].projectTaskList.splice(index, 1)
         // repaint content
-        displayCurrentProjectTitle()
         displayTasks()
         // update storage
         setStorage()
@@ -164,6 +171,20 @@ function displayTasks(){
   })
 }
 
+// this function handels the task complete
+function toggleTaskCompleted(element, index){
+  console.log(element, index)
+
+  //remove task from projectList[currentProjectIndex].projectTaskList
+
+  // projects need projectTaskListCompleted
+
+  // add task to projectTaskListCompleted (of its assigned project). Do not use current project index (for scalability)
+
+  // task needs boolean taskCompleted property
+
+  // set taskCompleted = true
+}
 
 function displayFullTask(task){
   task.classList.toggle("taskExpandActive")
