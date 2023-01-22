@@ -133,6 +133,24 @@ function displayTasks(){
       let newTaskExpand = document.createElement("div")
       newTaskExpand.classList.add("taskExpand")
       newTaskExpand.textContent = element.taskDescription
+      
+      // add trash icon
+      let trashIconTask = document.createElement("img")
+      trashIconTask.classList.add("trashIcon")
+      trashIconTask.src = "trash-icon.png"
+      // add project delete eventlistener
+      trashIconTask.addEventListener("click", (e) => {
+        // stop the event from propagationg up
+        e.stopPropagation();
+        // remove task from projectList.projectTaskList
+        projectList[currentProjectIndex].projectTaskList.splice(index, 1)
+        // repaint content
+        displayCurrentProjectTitle()
+        displayTasks()
+        // update storage
+        setStorage()
+      })
+      newTaskExpand.append(trashIconTask)
       newTaskDiv.append(newTaskExpand)
     taskList.append(newTaskDiv)
 
