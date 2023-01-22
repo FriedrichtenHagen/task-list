@@ -21,7 +21,7 @@ inputScreenTask.addEventListener("click", toggleTaskInput)
 let currentProjectIndex = 0 // start on inbox
 
 // create project array
-let projectList = [{projectTitle: "Inbox", projectDescription: "a placeholder Project", projectTaskList: [{taskTitle: "go shopping", taskDescription: "a placeholder task", taskDate: "01.03.23", taskPriority: "low", taskProject: "Inbox"}, {taskTitle: "Seltene Erden", taskDescription: "Es ist wichtig, dass mal regelmäßig neue Erden prüft. So kann man garantieren, dass alles stimmt.", taskDate: "14.11.23", taskPriority: "high", taskProject: "Inbox"}, {taskTitle: "Mehr sehen", taskDescription: "dalökjdsflrg lkwr rlkmfrelkalvldskfmnlsdfijirae f.", taskDate: "14.11.23", taskPriority: "high", taskProject: "Inbox"}]}, {projectTitle: "Sports", projectDescription: "a placeholder Project", projectTaskList: [{taskTitle: "wrestling", taskDescription: "a placeholder task", taskDate: "01.03.24", taskPriority: "low", taskProject: "Inbox"}, {taskTitle: "add linter", taskDescription: "Learn new techniques.", taskDate: "14.11.23", taskPriority: "high", taskProject: "Inbox"}, {taskTitle: "read documentation", taskDescription: "dalökjdsflrg lkwr rlkmfrelkalvldskfmnlsdfijirae f.", taskDate: "14.11.23", taskPriority: "high", taskProject: "Inbox"}]}]
+let projectList = [{projectTitle: "Inbox", projectDescription: "a placeholder Project", projectTaskList: [{taskTitle: "go shopping", taskDescription: "a placeholder task", taskDate: "01.03.23", taskPriority: "low", taskProject: "Inbox"}, {taskTitle: "Seltene Erden", taskDescription: "Es ist wichtig, dass mal regelmäßig neue Erden prüft. So kann man garantieren, dass alles stimmt.", taskDate: "14.11.23", taskPriority: "high", taskProject: "Inbox"}, {taskTitle: "Mehr sehen", taskDescription: "dalökjdsflrg lkwr rlkmfrelkalvldskfmnlsdfijirae f.", taskDate: "14.11.23", taskPriority: "high", taskProject: "Inbox"}], projectTaskListCompleted: [{taskTitle: "einkaufen", taskDescription: "der Einkauf von gestern", taskDate: "14.11.21", taskPriority: "high", taskProject: "Inbox"}]}]
 
 // event listener on project submit
 const projectSubmitButton = document.querySelector(".projectSubmitButton")
@@ -85,6 +85,7 @@ function createTask(title, description, dueDate, priority){
     taskDate : taskDate.value,
     taskPriority : taskPriority.value,
     taskProject: taskProject.value,
+    taskCompleted: false,
   }
   return newTask
 }
@@ -175,15 +176,27 @@ function displayTasks(){
 function toggleTaskCompleted(element, index){
   console.log(element, index)
 
-  //remove task from projectList[currentProjectIndex].projectTaskList
+  // this is the version uncompleted->completed
+    // find projectList index of project that contains current task
+    let clickedProjectIndex;
+    for(let i=0; i<projectList.length; i++){
+      if(projectList[i].projectTitle === element.taskProject){
+        console.log("the projectList index is: " + i)
+        clickedProjectIndex = i
+      }
+    }
+    //remove task from project
+    projectList[clickedProjectIndex].projectTaskList.splice(index, 1)
 
-  // projects need projectTaskListCompleted
+    // add task to projectTaskListCompleted (of its assigned project). Do not use current project index (for scalability)
+    projectList[clickedProjectIndex].projectTaskListCompleted.push(element)
 
-  // add task to projectTaskListCompleted (of its assigned project). Do not use current project index (for scalability)
+    // set task as completed
+    element.taskCompleted = true;
+  // this is the version completed->uncompleted
 
-  // task needs boolean taskCompleted property
 
-  // set taskCompleted = true
+  // ...
 }
 
 function displayFullTask(task){
@@ -204,6 +217,7 @@ function createProject(){
     projectTitle : projectTitle.value, 
     projectDescription: projectDescription.value,
     projectTaskList : [],
+    projectTaskListCompleted: [],
   }
   // clear input fields
   projectTitle.value = ""
@@ -334,8 +348,8 @@ move delete eventlistener to task trash icon
 
 make tasks markable as finished (save these similiar to google tasks in lower menu)
   write logic: 
-    task needs boolean completed property
-    projects need projectTaskListCompleted
+    fix with removing of projects and currentProjectIndex
+    create completed-> uncompleted
   write DOM Manipulation:
     create html footer for finished tasks
     function displayTasksCompleted()
