@@ -311,6 +311,24 @@ function displayMobileMenu(){
   })
 }
 
+const contentCompletedHeaderIcon = document.querySelector(".contentCompletedHeaderIcon")
+contentCompletedHeaderIcon.addEventListener("click", toggleCompletedIcon)
+
+function toggleCompletedIcon(){
+  // activate icon
+  contentCompletedHeaderIcon.classList.toggle("completedDropdownActive")
+  // activate dropdown
+  const contentCompletedExpand = document.querySelector(".contentCompletedExpand")
+  contentCompletedExpand.classList.toggle("completedDropdownActive")
+}
+
+
+
+
+
+
+
+
 // initial filling of previously empty storage
 function setStorage(){
   // localStorage only accepts string datatype

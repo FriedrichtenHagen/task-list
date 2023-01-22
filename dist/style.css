@@ -84,9 +84,6 @@ body{
     background-color: var(--main-color);
     padding: 65px;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 .contentTitle{
     font-size: 3rem;
@@ -195,13 +192,26 @@ body{
     font-weight: bold;
 }
 .contentCompleted{
-    border: 0.5px solid black;
-    min-height: 200px;
+    border: 0.1px solid black;
+    margin-top: 20px;
+    
 }
 .contentCompletedHeader{
     display: flex;
     justify-content: flex-end;
     align-items: center;
+}
+.contentCompletedHeaderIcon{
+    height: 20px;
+    cursor: pointer;
+    transition: ease-in 0.4s;
+}
+.contentCompletedHeaderIcon.completedDropdownActive{
+    transform: rotate(180deg);
+}
+.contentCompletedExpand.completedDropdownActive{
+
+    min-height: 200px;
 }
 /*
 Input Modal
