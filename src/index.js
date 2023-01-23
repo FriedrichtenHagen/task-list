@@ -176,28 +176,38 @@ function displayTasks(){
 function toggleTaskCompleted(element, index){
   console.log(element, index)
 
-  // this is the version uncompleted->completed
-    // find projectList index of project that contains current task
-    let clickedProjectIndex;
-    for(let i=0; i<projectList.length; i++){
-      if(projectList[i].projectTitle === element.taskProject){
-        console.log("the projectList index is: " + i)
-        clickedProjectIndex = i
-      }
+  // find projectList index of project that contains current task
+  let clickedProjectIndex;
+  for(let i=0; i<projectList.length; i++){
+    if(projectList[i].projectTitle === element.taskProject){
+      console.log("the projectList index is: " + i)
+      clickedProjectIndex = i
     }
+  }
+  // this is the version uncompleted->completed
+  if(element.taskCompleted){
+    // remove task from projectTaskListCompleted
+    projectList[clickedProjectIndex].projectTaskListCompleted.splice(index, 1)
+    // add task to projectTaskListCompleted
+    projectList[clickedProjectIndex].projectTaskList.push(element)
+    // set task as uncompleted
+    element.taskCompleted = false;
+    console.log(projectList[clickedProjectIndex])
+  }else{ // this is the version completed->uncompleted
     //remove task from project
     projectList[clickedProjectIndex].projectTaskList.splice(index, 1)
-
-    // add task to projectTaskListCompleted (of its assigned project). Do not use current project index (for scalability)
+    // add task to projectTaskListCompleted
     projectList[clickedProjectIndex].projectTaskListCompleted.push(element)
-
     // set task as completed
     element.taskCompleted = true;
-  // this is the version completed->uncompleted
-
-
-  // ...
+    console.log(projectList[clickedProjectIndex])
+  }
 }
+
+
+
+
+
 
 function displayFullTask(task){
   task.classList.toggle("taskExpandActive")
