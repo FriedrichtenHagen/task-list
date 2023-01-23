@@ -113,15 +113,8 @@ function displayTasks(){
           newTaskButton.addEventListener("click", function(){
             // add function to toggle complete status here!
             newTaskDiv.classList.toggle("taskCompleted")
-
             toggleTaskCompleted(element, index)
-            /*
-          write DOM Manipulation:
-            create html footer for finished tasks
-            function displayTasksCompleted()
-*/
-
-
+            displayTasksCompleted()
           })
           newTaskButton.classList.add("taskButton")
           newTaskLeft.appendChild(newTaskButton)
@@ -171,6 +164,92 @@ function displayTasks(){
     })
   })
 }
+
+function displayTasksCompleted(){
+  const taskListCompleted = document.querySelector(".contentCompletedExpand")
+  // remove existing tasks
+  while(taskListCompleted.lastChild){
+    taskListCompleted.removeChild(taskListCompleted.lastChild)
+  }
+  // add all tasks in projectTaskList
+  projectList[currentProjectIndex].projectTaskListCompleted.forEach((element, index) => {
+    let newTaskDiv = document.createElement("div")
+    newTaskDiv.classList.add("task")
+    newTaskDiv.classList.add("taskCompleted")
+      // task header
+      let newTaskHeader = document.createElement("div")
+      newTaskHeader.classList.add("taskHeader")
+        // task left
+        let newTaskLeft = document.createElement("div")
+        newTaskLeft.classList.add("taskLeft")
+          // task button
+          let newTaskButton = document.createElement("div")
+          // add eventlistener for deleting task
+          newTaskButton.addEventListener("click", function(){
+            // add function to toggle complete status here!
+            newTaskDiv.classList.toggle("taskCompleted")
+            toggleTaskCompleted(element, index)
+            displayTasksCompleted()
+          })
+          newTaskButton.classList.add("taskButton")
+          newTaskLeft.appendChild(newTaskButton)
+          // task text
+          let newTaskText = document.createElement("div")
+          newTaskText.classList.add("taskText")
+          newTaskText.textContent = element.taskTitle
+          newTaskLeft.appendChild(newTaskText)
+        newTaskHeader.append(newTaskLeft)
+          // task right
+          let newTaskRight = document.createElement("div")
+          newTaskRight.classList.add("taskRight")
+          newTaskRight.textContent = element.taskDate
+        newTaskHeader.append(newTaskRight)
+      newTaskDiv.append(newTaskHeader)
+      
+      // append concealed further task infos
+      let newTaskExpand = document.createElement("div")
+      newTaskExpand.classList.add("taskExpand")
+      newTaskExpand.textContent = element.taskDescription
+      
+      // add trash icon
+      let trashIconTask = document.createElement("img")
+      trashIconTask.classList.add("trashIcon")
+      trashIconTask.src = "trash-icon.png"
+      // add project delete eventlistener
+      trashIconTask.addEventListener("click", (e) => {
+        // stop the event from propagationg up
+        e.stopPropagation();
+        // remove task from projectList.projectTaskList
+        projectList[currentProjectIndex].projectTaskListCompleted.splice(index, 1)
+        // repaint completed tasks
+        displayTasksCompleted()
+        // update storage
+        setStorage()
+      })
+      newTaskExpand.append(trashIconTask)
+      newTaskDiv.append(newTaskExpand)
+    taskListCompleted.append(newTaskDiv)
+
+    // add eventlistener to task
+    newTaskDiv.addEventListener("mouseover", function(){
+      displayFullTask(newTaskExpand)
+    })
+    newTaskDiv.addEventListener("mouseout", function(){
+      displayFullTask(newTaskExpand)
+    })
+  })
+
+
+
+
+}
+
+
+
+
+
+
+
 
 // this function handels the task complete
 function toggleTaskCompleted(element, index){
@@ -375,14 +454,12 @@ improve layout on really wide displays
 move delete eventlistener to task trash icon
 
 make tasks markable as finished (save these similiar to google tasks in lower menu)
-  write logic: 
-    fix with removing of projects and currentProjectIndex
-    create completed-> uncompleted
   write DOM Manipulation:
     create html footer for finished tasks
     function displayTasksCompleted()
 
-
+bug: 
+it is not possible to delete all but 2 projects?
 
 make all content editable
 
