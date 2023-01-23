@@ -450,7 +450,7 @@ updateProjectSelect()
 displayCurrentProjectTitle()
 displayTasks()
 displayMobileMenu()
-
+displayTasksCompleted()
 
 /*
 display priority in some way
@@ -468,7 +468,7 @@ bug:
   long project names destroy layout on mobile
 
 make all content editable
-
+add a completed counter
 add sort function for date
 
 Modals
