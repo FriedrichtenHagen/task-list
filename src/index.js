@@ -337,6 +337,7 @@ function paintProjects(){
       currentProjectIndex = index
       displayCurrentProjectTitle()
       displayTasks()
+      displayTasksCompleted()
 
     }) 
     // append concealed further project infos
