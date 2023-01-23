@@ -112,9 +112,16 @@ function displayTasks(){
           // add eventlistener for deleting task
           newTaskButton.addEventListener("click", function(){
             // add function to toggle complete status here!
-            newTaskDiv.classList.toggle("taskCompleted")
+            // newTaskDiv.classList.toggle("taskCompleted")
+
+
+            // toggle class between completedTaskList and taskList
             toggleTaskCompleted(element, index)
+            // repaint the taskList
+            displayTasks()
+            // create them in the dropdown
             displayTasksCompleted()
+            setStorage()
           })
           newTaskButton.classList.add("taskButton")
           newTaskLeft.appendChild(newTaskButton)
@@ -187,9 +194,11 @@ function displayTasksCompleted(){
           // add eventlistener for deleting task
           newTaskButton.addEventListener("click", function(){
             // add function to toggle complete status here!
-            newTaskDiv.classList.toggle("taskCompleted")
+            // newTaskDiv.classList.toggle("taskCompleted")
             toggleTaskCompleted(element, index)
             displayTasksCompleted()
+            displayTasks()
+            setStorage()
           })
           newTaskButton.classList.add("taskButton")
           newTaskLeft.appendChild(newTaskButton)
@@ -238,10 +247,6 @@ function displayTasksCompleted(){
       displayFullTask(newTaskExpand)
     })
   })
-
-
-
-
 }
 
 
@@ -459,7 +464,8 @@ make tasks markable as finished (save these similiar to google tasks in lower me
     function displayTasksCompleted()
 
 bug: 
-it is not possible to delete all but 2 projects?
+  it is not possible to delete all but 2 projects?
+  long project names destroy layout on mobile
 
 make all content editable
 

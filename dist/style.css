@@ -192,8 +192,8 @@ body{
     font-weight: bold;
 }
 .contentCompleted{
-    border: 0.1px solid black;
-    margin-top: 20px;
+    border-top: 1px solid rgb(0 0 0 / 25%);
+    margin-top: 50px;
     
 }
 .contentCompletedHeader{
@@ -205,13 +205,17 @@ body{
     height: 20px;
     cursor: pointer;
     transition: ease-in 0.4s;
+    padding: 5px;
 }
 .contentCompletedHeaderIcon.completedDropdownActive{
     transform: rotate(180deg);
 }
+.contentCompletedExpand{
+    display: none;
+    border-bottom: 1px solid rgb(0 0 0 / 25%);
+}
 .contentCompletedExpand.completedDropdownActive{
-
-    min-height: 200px;
+    display: block;
 }
 /*
 Input Modal
