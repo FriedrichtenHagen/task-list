@@ -470,6 +470,7 @@ bug:
 make all content editable
 add a completed counter
 add sort function for date
+add boxshadows for 3d effect
 
 Modals
   style task modal (align inputs)
