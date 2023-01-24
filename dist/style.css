@@ -89,6 +89,7 @@ body{
     font-size: 3rem;
     display: flex;
     margin-bottom: 1rem;
+    overflow-wrap: break-word;
 }
 .contentProjectTitle{
     margin-left: 0.5rem;
@@ -357,6 +358,9 @@ li>button:hover {
       
     .projectsTitle{
         margin: 0px 0px 10px;
+    }
+    .contentTitle{
+        font-size: 2rem;
     }
     .newProjectButton{
         margin-top: 0px;

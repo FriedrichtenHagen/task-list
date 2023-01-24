@@ -193,8 +193,6 @@ function displayTasksCompleted(){
           let newTaskButton = document.createElement("div")
           // add eventlistener for deleting task
           newTaskButton.addEventListener("click", function(){
-            // add function to toggle complete status here!
-            // newTaskDiv.classList.toggle("taskCompleted")
             toggleTaskCompleted(element, index)
             displayTasksCompleted()
             displayTasks()
@@ -251,11 +249,6 @@ function displayTasksCompleted(){
 
 
 
-
-
-
-
-
 // this function handels the task complete
 function toggleTaskCompleted(element, index){
   console.log(element, index)
@@ -296,10 +289,15 @@ function toggleTaskCompleted(element, index){
 function displayFullTask(task){
   task.classList.toggle("taskExpandActive")
 }
-function displayCurrentProjectTitle(){
-   // update contentProjectTitle
-   const contentProjectTitle = document.querySelector(".contentProjectTitle")
-   contentProjectTitle.textContent = projectList[currentProjectIndex].projectTitle
+function displayCurrentProjectTitle(){    
+  if(projectList.length===0){
+    alert("no projects left")
+  }else{
+    // update contentProjectTitle
+    const contentProjectTitle = document.querySelector(".contentProjectTitle")
+    contentProjectTitle.textContent = projectList[currentProjectIndex].projectTitle
+  }
+
 }
 
 // create project object
@@ -358,8 +356,6 @@ function paintProjects(){
         console.log(currentProjectIndex)
       if(currentProjectIndex!==0){
         currentProjectIndex--
-      }else{
-        currentProjectIndex++
       }
       console.log(currentProjectIndex)
       // repaint project menu
@@ -457,15 +453,10 @@ displayTasksCompleted()
 display priority in some way
 improve layout on really wide displays
 
-move delete eventlistener to task trash icon
 
-make tasks markable as finished (save these similiar to google tasks in lower menu)
-  write DOM Manipulation:
-    create html footer for finished tasks
-    function displayTasksCompleted()
 
 bug: 
-  it is not possible to delete all but 2 projects?
+  it is not possible to delete all but 1 project
   long project names destroy layout on mobile
 
 make all content editable
