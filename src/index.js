@@ -468,6 +468,7 @@ style:
   display priority in some way
   improve layout on really wide displays
   add boxshadows for 3d effect
+  work on overflow for titles and descriptions
 
 
 bug: 
@@ -475,7 +476,6 @@ bug:
 
 todos:
   make all content editable
-  add a completed counter
   add sort function for date
 
 
