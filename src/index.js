@@ -121,6 +121,8 @@ function displayTasks(){
             displayTasks()
             // create them in the dropdown
             displayTasksCompleted()
+            // update completed task number
+            completedTaskCounter()
             setStorage()
           })
           newTaskButton.classList.add("taskButton")
@@ -195,6 +197,8 @@ function displayTasksCompleted(){
           newTaskButton.addEventListener("click", function(){
             toggleTaskCompleted(element, index)
             displayTasksCompleted()
+            // update completed task number
+            completedTaskCounter()
             displayTasks()
             setStorage()
           })
@@ -230,6 +234,8 @@ function displayTasksCompleted(){
         projectList[currentProjectIndex].projectTaskListCompleted.splice(index, 1)
         // repaint completed tasks
         displayTasksCompleted()
+        // update completed task number
+        completedTaskCounter()
         // update storage
         setStorage()
       })
@@ -336,7 +342,7 @@ function paintProjects(){
       displayCurrentProjectTitle()
       displayTasks()
       displayTasksCompleted()
-
+      completedTaskCounter(currentProjectIndex)
     }) 
     // append concealed further project infos
     let newProjectExpand = document.createElement("div")
@@ -365,6 +371,10 @@ function paintProjects(){
       displayTasks()
       // update project select in modal
       updateProjectSelect()
+      // update completed task number
+      completedTaskCounter()
+      // update the completed tasks
+      displayTasksCompleted()
       // update storage
       setStorage()
     })
@@ -413,7 +423,10 @@ function toggleCompletedIcon(){
   contentCompletedExpand.classList.toggle("completedDropdownActive")
 }
 
-
+function completedTaskCounter(){
+  const contentCompletedNumber = document.querySelector(".contentCompletedNumber")
+  contentCompletedNumber.textContent = projectList[currentProjectIndex].projectTaskListCompleted.length
+}
 
 
 
@@ -448,26 +461,28 @@ displayCurrentProjectTitle()
 displayTasks()
 displayMobileMenu()
 displayTasksCompleted()
+completedTaskCounter()
 
 /*
-display priority in some way
-improve layout on really wide displays
-
+style: 
+  display priority in some way
+  improve layout on really wide displays
+  add boxshadows for 3d effect
 
 
 bug: 
   it is not possible to delete all but 1 project
-  long project names destroy layout on mobile
 
-make all content editable
-add a completed counter
-add sort function for date
-add boxshadows for 3d effect
+todos:
+  make all content editable
+  add a completed counter
+  add sort function for date
 
-Modals
-  style task modal (align inputs)
-  add input validation
-    this requires the inputs to be coded as forms
-    e.preventDefault to prevent the form from being submitted to a nonexistant backend
+
+  modals
+    style task modal (align inputs)
+    add input validation
+      this requires the inputs to be coded as forms
+      e.preventDefault to prevent the form from being submitted to a nonexistant backend
 
 */ 

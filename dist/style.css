@@ -199,8 +199,17 @@ body{
 }
 .contentCompletedHeader{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
+}
+.contentCompletedLeft{
+    display: flex;
+    padding: 5px;
+    font-size: 0.85rem;
+}
+
+.contentCompletedNumber{
+    margin-left: 5px;
 }
 .contentCompletedHeaderIcon{
     height: 20px;
