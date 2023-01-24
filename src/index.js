@@ -506,7 +506,7 @@ if (!localStorage.getItem('projectList')) {
   setStorage();
 } else {
   // update projectList to local storage content
-  // projectList = getStorage();
+  projectList = getStorage();
 }
 // initial update of content
 paintProjects()
