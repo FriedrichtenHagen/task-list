@@ -21,7 +21,61 @@ inputScreenTask.addEventListener("click", toggleTaskInput)
 let currentProjectIndex = 0 // start on inbox
 
 // create project array
-let projectList = [{projectTitle: "Inbox", projectDescription: "a placeholder Project", projectTaskList: [{taskTitle: "go shopping", taskDescription: "a placeholder task", taskDate: "01.03.23", taskPriority: "low", taskProject: "Inbox"}, {taskTitle: "Seltene Erden", taskDescription: "Es ist wichtig, dass mal regelmäßig neue Erden prüft. So kann man garantieren, dass alles stimmt.", taskDate: "14.11.23", taskPriority: "high", taskProject: "Inbox"}, {taskTitle: "Mehr sehen", taskDescription: "dalökjdsflrg lkwr rlkmfrelkalvldskfmnlsdfijirae f.", taskDate: "14.11.23", taskPriority: "high", taskProject: "Inbox"}], projectTaskListCompleted: [{taskTitle: "einkaufen", taskDescription: "der Einkauf von gestern", taskDate: "14.11.21", taskPriority: "high", taskProject: "Inbox"}]}]
+let projectList = 
+[
+  {
+  projectTitle: "weekend", 
+  projectDescription: "plans for the weekend", 
+  projectTaskList: [
+    {taskTitle: "go shopping", 
+      taskDescription: "go to rewe", 
+      taskDate: "01.03.23", 
+      taskPriority: "low", 
+      taskProject: "weekend"}, 
+    {taskTitle: "Sports", 
+      taskDescription: "stay fit", 
+      taskDate: "14.11.23", 
+      taskPriority: "high", 
+      taskProject: "weekend"}, 
+    {taskTitle: "Study Korean", 
+    taskDescription: "Maeil jonseup haeyo", 
+    taskDate: "14.11.23", 
+    taskPriority: "high", 
+    taskProject: "weekend"}], 
+  projectTaskListCompleted: [{
+    taskTitle: "study javascript", 
+    taskDescription: "easy", 
+    taskDate: "14.11.21", 
+    taskPriority: "high", 
+    taskProject: "weekend"}]
+  },
+  {
+  projectTitle: "this week", 
+  projectDescription: "plans for the week", 
+  projectTaskList: [
+    {taskTitle: "go to work", 
+      taskDescription: "5 times", 
+      taskDate: "01.03.23", 
+      taskPriority: "low", 
+      taskProject: "this week"}, 
+    {taskTitle: "learn React", 
+      taskDescription: "lets go", 
+      taskDate: "14.11.23", 
+      taskPriority: "high", 
+      taskProject: "this week"}, 
+    {taskTitle: "Study Korean", 
+    taskDescription: "Anyonghasaeyo", 
+    taskDate: "14.11.23", 
+    taskPriority: "high", 
+    taskProject: "this week"}], 
+  projectTaskListCompleted: [{
+    taskTitle: "study CSS", 
+    taskDescription: "easy", 
+    taskDate: "14.11.21", 
+    taskPriority: "high", 
+    taskProject: "this week"}]
+  }
+]
 
 // event listener on project submit
 const projectSubmitButton = document.querySelector(".projectSubmitButton")
@@ -452,7 +506,7 @@ if (!localStorage.getItem('projectList')) {
   setStorage();
 } else {
   // update projectList to local storage content
-  projectList = getStorage();
+  // projectList = getStorage();
 }
 // initial update of content
 paintProjects()
