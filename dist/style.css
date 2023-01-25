@@ -389,3 +389,17 @@ li>button:hover {
         transform: rotate(0deg);
     }
   }
+  @media (min-width: 600px) {
+    .content{
+        width: 800px;
+    }
+    .frame{
+
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-color: var(--main-color);
+
+    }
+  }
+  

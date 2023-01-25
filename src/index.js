@@ -521,7 +521,6 @@ completedTaskCounter()
 style: 
   display priority in some way
   improve layout on really wide displays
-  add boxshadows for 3d effect
   work on overflow for titles and descriptions
 
 
