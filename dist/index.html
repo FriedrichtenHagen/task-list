@@ -98,13 +98,13 @@
                 <div class="contentCompletedExpand"></div>
             </div>
         </div>
-        <div class="inputFormProject">
+        <form class="inputFormProject" >
             <div class="inputHeader">
                 Add new project:
             </div>
                 <ul>
                     <li>
-                        <input type="text" id="projectTitle" required placeholder="Title" minlength="2" pattern="[a-z]*">
+                        <input type="text" id="projectTitle" required placeholder="Title" minlength="2" maxlength="15" pattern="[a-zA-Z0-9_ ]*">
                     </li>
                     <li>
                         <input type="text" required id="projectDescription" placeholder="Description" minlength="2">
@@ -113,37 +113,37 @@
                             <button class="projectSubmitButton">Save</button>
                     </li>
                 </ul>
-        </div>
-        <div class="inputFormTask">
+        </form>
+        <form class="inputFormTask">
             <div class="inputHeader">
                 Add new task:
             </div>
-                <ul>
-                    <li>
-                        <input type="text" id="taskTitle" placeholder="task title" minlength="2" required>
-                    </li>
-                    <li>
-                        <input type="text" id="taskDescription" placeholder="task description" required minlength="2">
-                    </li>
-                    <li>
-                        <select name="taskProject" id="taskProject">
-                        </select>
-                    </li>
-                    <li>
-                        <input type="date" required name="" id="taskDate">
-                    </li>
-                    <li>
-                        <select name="taskPriority" id="taskPriority">
-                            <option value="1">low</option>
-                            <option value="2">medium</option>
-                            <option value="3">high</option>
-                        </select>
-                    </li>
-                    <li id="submitButton">
-                            <button class="taskSubmitButton">Save</button>
-                    </li>
-                </ul>
-        </div>
+            <ul>
+                <li>
+                    <input type="text" id="taskTitle" placeholder="task title" minlength="2" required>
+                </li>
+                <li>
+                    <input type="text" id="taskDescription" placeholder="task description" required minlength="2">
+                </li>
+                <li>
+                    <select name="taskProject" id="taskProject">
+                    </select>
+                </li>
+                <li>
+                    <input type="date" required name="" id="taskDate">
+                </li>
+                <li>
+                    <select name="taskPriority" id="taskPriority">
+                        <option value="1">low</option>
+                        <option value="2">medium</option>
+                        <option value="3">high</option>
+                    </select>
+                </li>
+                <li id="submitButton">
+                        <button class="taskSubmitButton">Save</button>
+                </li>
+            </ul>
+        </form>
         <div class="inputScreenProject"></div>
         <div class="inputScreenTask"></div>
     </div>

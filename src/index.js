@@ -517,6 +517,20 @@ displayMobileMenu()
 displayTasksCompleted()
 completedTaskCounter()
 
+
+// form validation via constraint validation API
+const inputProjectTitle = document.querySelector("#projectTitle")
+inputProjectTitle.addEventListener("input", (e)=> {
+  if(inputProjectTitle.validity.valid){
+    inputProjectTitle.setCustomValidity("Please enter at least 2 letters");
+  }
+  else {
+    inputProjectTitle.setCustomValidity("");
+  }
+})
+
+
+
 /*
 style: 
   display priority in some way
