@@ -264,6 +264,13 @@ Input Modal
     transform: translate(-50%, -50%) scale(1) ;
     transition: 0.2s ease-in-out;
 }
+input:invalid{
+    border: 1px solid rgba(255, 0, 0, 0.324);
+}
+input:valid{
+    border: 1px solid rgba(0, 128, 0, 0.349);
+}
+
 ul{
     list-style: none;
     margin: 0px;

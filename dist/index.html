@@ -104,10 +104,10 @@
             </div>
                 <ul>
                     <li>
-                        <input type="text" id="projectTitle" placeholder="Title" minlength="2">
+                        <input type="text" id="projectTitle" required placeholder="Title" minlength="2" pattern="[a-z]*">
                     </li>
                     <li>
-                        <input type="text" id="projectDescription" placeholder="Description" minlength="2">
+                        <input type="text" required id="projectDescription" placeholder="Description" minlength="2">
                     </li>
                     <li id="submitButton">
                             <button class="projectSubmitButton">Save</button>
@@ -120,17 +120,17 @@
             </div>
                 <ul>
                     <li>
-                        <input type="text" id="taskTitle" placeholder="task title" minlength="2">
+                        <input type="text" id="taskTitle" placeholder="task title" minlength="2" required>
                     </li>
                     <li>
-                        <input type="text" id="taskDescription" placeholder="task description" minlength="2">
+                        <input type="text" id="taskDescription" placeholder="task description" required minlength="2">
                     </li>
                     <li>
                         <select name="taskProject" id="taskProject">
                         </select>
                     </li>
                     <li>
-                        <input type="date" name="" id="taskDate">
+                        <input type="date" required name="" id="taskDate">
                     </li>
                     <li>
                         <select name="taskPriority" id="taskPriority">
