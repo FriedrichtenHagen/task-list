@@ -133,13 +133,25 @@ body{
     background-color: rgb(0, 0, 0);
     transform: scale(1.1);
 }
+
+
 .taskRight{
     font-size: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
-
+.dateInput{
+    display: none;
+    cursor: pointer;
+}
+.taskDateInvisible{
+    display: none;
+}
+.taskInputVisible{
+    display: block;
+}
 .newTaskButton{
     display: flex;
     align-items: center;
@@ -264,10 +276,10 @@ Input Modal
     transform: translate(-50%, -50%) scale(1) ;
     transition: 0.2s ease-in-out;
 }
-input:invalid{
+input:focus:invalid{
     border: 1px solid rgba(255, 0, 0, 0.324);
 }
-input:valid{
+input:focus:valid{
     border: 1px solid rgba(0, 128, 0, 0.349);
 }
 

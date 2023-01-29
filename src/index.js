@@ -191,22 +191,23 @@ function displayTasks(){
           let newTaskRight = document.createElement("div")
           newTaskRight.classList.add("taskRight")
           newTaskRight.textContent = element.taskDate
-
+          // dateInput
+          const dateInput = document.createElement("input")
+          dateInput.classList.add("dateInput")
+          dateInput.type= "date"
+          dateInput.addEventListener("input", (e) => {
+            // save the date to the corresponding task in projectList
+            element.taskDate = dateInput.value
+            // refresh tasks
+            displayTasks()
+            // save to local storage
+            setStorage()
+          })
+        newTaskHeader.append(dateInput)
           //add eventlistener to newTaskRight
           newTaskRight.addEventListener("click", function(){
-            toggleDateInput(newTaskRight)
+            toggleDateInput(newTaskRight, dateInput)
           } )
-            //toggle visibility between date and input
-          // append invisible input here
-
-
-
-
-
-
-          
-
-
         newTaskHeader.append(newTaskRight)
       newTaskDiv.append(newTaskHeader)
       
@@ -244,8 +245,9 @@ function displayTasks(){
   })
 }
 
-function toggleDateInput(dateElement){
-  alert("toggle date inpu"+ dateElement)
+function toggleDateInput(newTaskRight, dateInput){
+  newTaskRight.classList.toggle("taskDateInvisible")
+  dateInput.classList.toggle("taskInputVisible")
 }
 
 
@@ -539,17 +541,6 @@ displayTasksCompleted()
 completedTaskCounter()
 
 
-// form validation via constraint validation API
-const inputProjectTitle = document.querySelector("#projectTitle")
-inputProjectTitle.addEventListener("input", (e)=> {
-  if(inputProjectTitle.validity.valid){
-    inputProjectTitle.setCustomValidity("Please enter at least 2 letters");
-  }
-  else {
-    inputProjectTitle.setCustomValidity("");
-  }
-})
-
 
 
 /*
@@ -563,7 +554,9 @@ bug:
   it is not possible to delete all but 1 project
 
 todos:
-  make all content editable
+  add inputs on: 
+    taskTitle, taskDescription, 
+    projectTitle, projectDescription
   add sort function for date
 
 
