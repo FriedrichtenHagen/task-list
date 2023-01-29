@@ -191,6 +191,22 @@ function displayTasks(){
           let newTaskRight = document.createElement("div")
           newTaskRight.classList.add("taskRight")
           newTaskRight.textContent = element.taskDate
+
+          //add eventlistener to newTaskRight
+          newTaskRight.addEventListener("click", function(){
+            toggleDateInput(newTaskRight)
+          } )
+            //toggle visibility between date and input
+          // append invisible input here
+
+
+
+
+
+
+          
+
+
         newTaskHeader.append(newTaskRight)
       newTaskDiv.append(newTaskHeader)
       
@@ -227,6 +243,11 @@ function displayTasks(){
     })
   })
 }
+
+function toggleDateInput(dateElement){
+  alert("toggle date inpu"+ dateElement)
+}
+
 
 function displayTasksCompleted(){
   const taskListCompleted = document.querySelector(".contentCompletedExpand")
