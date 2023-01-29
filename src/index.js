@@ -552,7 +552,7 @@ style:
 
 bug: 
   it is not possible to delete all but 1 project
-
+  mobile: inputScreens not covering screen anymore
 todos:
   add inputs on: 
     taskTitle, taskDescription, 
