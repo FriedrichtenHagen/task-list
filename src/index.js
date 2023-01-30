@@ -553,6 +553,7 @@ style:
 bug: 
   it is not possible to delete all but 1 project
   mobile: inputScreens not covering screen anymore
+  if projectDescription is empty the trash icon in project menu moves to the left
 todos:
   add inputs on: 
     taskTitle, taskDescription, 
