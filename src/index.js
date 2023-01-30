@@ -99,7 +99,7 @@ taskSubmitButton.addEventListener("click", () => {
 
   // decide to which project the task should be pushed
   for(let i=0; i<projectList.length; i++){
-    if(projectList[i].projectTitle===newTask.taskProject){
+    if(projectList.at(i).projectTitle===newTask.taskProject){
       projectList[i].projectTaskList.push(newTask)
     }
   }
@@ -554,17 +554,24 @@ bug:
   it is not possible to delete all but 1 project
   mobile: inputScreens not covering screen anymore
   if projectDescription is empty the trash icon in project menu moves to the left
+
 todos:
   add inputs on: 
     taskTitle, taskDescription, 
     projectTitle, projectDescription
   add sort function for date
-
+  move all dom manipulation to seperate file
 
   modals
     style task modal (align inputs)
     add input validation
       this requires the inputs to be coded as forms
       e.preventDefault to prevent the form from being submitted to a nonexistant backend
+
+
+  readme: 
+    babel
+    webpack
+    
 
 */ 
